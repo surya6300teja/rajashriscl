@@ -144,7 +144,7 @@
                         <h2 class="text-3xl sm:text-4xl font-bold text-[#10263B] mb-8 reveal-up">Quick Application</h2>
                         <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl reveal-up sticky top-8">
                             
-                            <form id="careerForm" action="https://formsubmit.co/siri21.jupally@gmail.com" method="POST" enctype="multipart/form-data" class="space-y-4">
+                            <!-- <form id="careerForm" class="space-y-4">
                                 <input type="hidden" name="_subject" value="New Career Application from Rajarshi Website">
                                 <input type="hidden" name="_template" value="table">
                                 <input type="hidden" name="_next" value="https://your-website.com/thank-you.html"> <input type="hidden" name="_captcha" value="false">
@@ -188,7 +188,50 @@
     <input type="hidden" name="_captcha" value="false">
 
                                 <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">Submit Application</button>
-                            </form>
+                            </form> -->
+                            <form id="careerForm" enctype="multipart/form-data" class="space-y-4">
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+    <input type="text" id="name" name="Name" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+    <input type="email" id="email" name="Email" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+    <input type="tel" id="phone" name="Phone" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="position" class="block text-sm font-medium text-gray-700">Desired Position</label>
+    <select id="position" name="Position" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+      <option value="" disabled selected>Select Position</option>
+      <option value="Pre Primary Teacher">Pre Primary Teacher</option>
+      <option value="Primary Teacher">Primary Teacher</option>
+      <option value="High School Teacher">High School Teacher</option>
+      <option value="Academic Coordinator">Academic Coordinator</option>
+      <option value="Parent Relations Executive">Parent Relations Executive</option>
+      <option value="Admission Officer">Admission Officer</option>
+      <option value="PET">PET</option>
+      <option value="Bus Driver">Bus Driver</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div>
+    <label for="experience" class="block text-sm font-medium text-gray-700">Years of Experience</label>
+    <input type="number" id="experience" name="Experience" min="0" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="cv_file" class="block text-sm font-medium text-gray-700 mb-1">Upload CV/Resume</label>
+    <input type="file" id="cv_file" name="attachment" accept=".pdf, .doc, .docx" required
+      class="w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#FFD166] file:text-black hover:file:bg-yellow-400 cursor-pointer">
+  </div>
+  <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">
+    Submit Application
+  </button>
+</form>
+
+
                         </div>
                     </div>
                 </div>
@@ -328,6 +371,37 @@
                 );
             });
         });
-    </script>
+        
+
+const scriptURL = "https://script.google.com/macros/s/AKfycbwFiHO3DpI2j1s3vYpfU93sxjgYx9aNZB0Tpmpa3jFT6zuQcjb-tKV-dy5ExM-Mztg/exec"; // your web app URL
+
+document.getElementById('careerForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form); // ✅ handles both text and file
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.textContent = "Submitting...";
+  submitButton.disabled = true;
+
+  try {
+    const res = await fetch(scriptURL, { method: "POST", body: formData });
+    const data = await res.json();
+
+    if (data.result === "success") {
+      alert("✅ Application submitted successfully!");
+      form.reset();
+    } else {
+      alert("⚠️ Error: " + data.message);
+    }
+  } catch (err) {
+    alert("❌ Submission failed: " + err.message);
+  }
+
+  submitButton.textContent = "Submit Application";
+  submitButton.disabled = false;
+});
+</script>
 </body>
 </html>
