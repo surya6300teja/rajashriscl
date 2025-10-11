@@ -86,7 +86,7 @@
                 <a href="careers.html" class="text-black-700 font-bold py-2">Careers</a>
                 <a href="gallery.html" class="text-black-700 hover:text-gray-500 py-2">Gallery</a>
                 <a href="admissions.html" class="text-black-700 font-bold py-2">Admissions</a>
-                    <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now/a>
+                    <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a>
             </div>
         </nav>
 
@@ -189,7 +189,7 @@
 
                                 <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">Submit Application</button>
                             </form> -->
-                            <form id="careerForm" enctype="multipart/form-data" class="space-y-4">
+                            <!-- <form id="careerForm" enctype="multipart/form-data" class="space-y-4">
   <div>
     <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
     <input type="text" id="name" name="Name" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
@@ -229,8 +229,80 @@
   <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">
     Submit Application
   </button>
-</form>
+</form> -->
 
+<!-- <form action="https://script.google.com/macros/s/AKfycbwFiHO3DpI2j1s3vYpfU93sxjgYx9aNZB0Tpmpa3jFT6zuQcjb-tKV-dy5ExM-Mztg/exec" 
+      method="POST" 
+      enctype="multipart/form-data" 
+      target="hidden_iframe" 
+      onsubmit="showSuccessMessage()">
+
+  <input type="text" name="Name" placeholder="Full Name" required>
+  <input type="email" name="Email" placeholder="Email" required>
+  <input type="tel" name="Phone" placeholder="Phone" required>
+  <input type="text" name="Position" placeholder="Position" required>
+  <input type="text" name="Experience" placeholder="Experience">
+  <input type="file" name="attachment" accept=".pdf,.doc,.docx" required>
+  <button type="submit">Submit</button>
+</form> -->
+
+<!-- Hidden iframe to prevent page reload -->
+<!-- <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe> -->
+<div id="success-message" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center">
+  Your application has been submitted successfully!
+</div>
+<form 
+  action="https://script.google.com/macros/s/AKfycbyKemL9RDQgCJGVLHwi9CaUbFQAcKtc3LpfqW4WOXlPNejX7mNiIRl9aLBkV-H2HO3D/exec"
+  method="POST"
+  enctype="multipart/form-data"
+  target="hidden_iframe"
+  onsubmit="submitted=true; showSuccessMessage();">
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+    <input type="text" id="name" name="Name" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+    <input type="email" id="email" name="Email" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+    <input type="tel" id="phone" name="Phone" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="position" class="block text-sm font-medium text-gray-700">Desired Position</label>
+    <select id="position" name="Position" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+      <option value="" disabled selected>Select Position</option>
+      <option value="Pre Primary Teacher">Pre Primary Teacher</option>
+      <option value="Primary Teacher">Primary Teacher</option>
+      <option value="High School Teacher">High School Teacher</option>
+      <option value="Academic Coordinator">Academic Coordinator</option>
+      <option value="Parent Relations Executive">Parent Relations Executive</option>
+      <option value="Admission Officer">Admission Officer</option>
+      <option value="PET">PET</option>
+      <option value="Bus Driver">Bus Driver</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div>
+    <label for="experience" class="block text-sm font-medium text-gray-700">Years of Experience</label>
+    <input type="number" id="experience" name="Experience" min="0" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="cv_file" class="block text-sm font-medium text-gray-700 mb-1">Upload CV/Resume</label>
+    <input type="file" id="cv_file" name="attachment" accept=".pdf, .doc, .docx" required
+      class="w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#FFD166] file:text-black hover:file:bg-yellow-400 cursor-pointer">
+  </div>
+  <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">
+    Submit Application
+  </button>
+
+ 
+</form>
+ 
+
+<!-- Hidden iframe -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="iframeLoaded()"></iframe>
 
                         </div>
                     </div>
@@ -373,36 +445,30 @@
         });
         
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbwFiHO3DpI2j1s3vYpfU93sxjgYx9aNZB0Tpmpa3jFT6zuQcjb-tKV-dy5ExM-Mztg/exec"; // your web app URL
+let submitted = false;
 
-document.getElementById('careerForm').addEventListener('submit', async function (e) {
-  e.preventDefault();
+function showSuccessMessage() {
+    const messageDiv = document.getElementById('success-message');
+    messageDiv.classList.remove('hidden'); // Show message
 
-  const form = e.target;
-  const formData = new FormData(form); // ✅ handles both text and file
+    // Scroll to the message
+    messageDiv.scrollIntoView({ behavior: 'smooth' });
 
-  const submitButton = form.querySelector('button[type="submit"]');
-  submitButton.textContent = "Submitting...";
-  submitButton.disabled = true;
+    // Hide the message after 5 seconds
+    setTimeout(() => {
+        messageDiv.classList.add('hidden');
+    }, 5000);
+}
 
-  try {
-    const res = await fetch(scriptURL, { method: "POST", body: formData });
-    const data = await res.json();
-
-    if (data.result === "success") {
-      alert("✅ Application submitted successfully!");
-      form.reset();
-    } else {
-      alert("⚠️ Error: " + data.message);
+function iframeLoaded() {
+    if (submitted) {
+        // Reset form only after submission completes
+        const form = document.querySelector('form');
+        if (form) form.reset();
+        submitted = false;
     }
-  } catch (err) {
-    alert("❌ Submission failed: " + err.message);
-  }
+}
 
-  submitButton.textContent = "Submit Application";
-  submitButton.disabled = false;
-});
 </script>
 </body>
-
 </html>
