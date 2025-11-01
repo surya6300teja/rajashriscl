@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Rajarshi International School</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .nav-link-container { position: relative; }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            padding-top: 1rem;
+        }
+        .nav-link-container:hover .dropdown { display: block; }
+        
+        nav a { /* Targets all direct anchor tags inside the nav */
+        font-weight: 700; /* Equivalent to Tailwind's font-bold */
+        /* text-lg (1.125rem) is often a good size, adjust if needed */
+        font-size: 1.125rem; /* Matches the visual weight of the reference */
+        color: #000000;
+        }
+        /* Custom property for header height (useful if you make header fixed later) */
+        .container {
+        max-width: 1400px; /* Adjust this value as needed, e.g., 1536px for max-w-7xl */
+        /* Ensure `mx-auto` is present on the container div in your HTML to center this max-width */
+        }
+        :root {
+            --header-height: 100px; /* Adjust this to your actual header height */
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'brand-green': '#1E6A52',
+                'brand-yellow': '#FFD166',
+                'brand-bg': '#FBF9EA',
+                'brand-surface': '#F8F5F1',
+              },
+              keyframes: {
+                spinClockwise: {
+                  'from': { transform: 'rotate(0deg)' },
+                  'to': { transform: 'rotate(360deg)' },
+                },
+                pulseSlow: {
+                  '0%, 100%': { transform: 'scale(1)', opacity: '0.9' },
+                  '50%': { transform: 'scale(1.03)', opacity: '1' },
+                }
+              },
+              animation: {
+                'spin-slow-clockwise': 'spinClockwise 45s linear infinite',
+                'pulse-slow': 'pulseSlow 10s ease-in-out infinite',
+              }
+            }
+          }
+        }
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const girlContainer = document.getElementById('girl-animation-container');
+
+            const handleScroll = () => {
+                if (window.innerWidth < 1024 || !girlContainer) {
+                    if (girlContainer) girlContainer.style.transform = 'translateY(0%)';
+                    return;
+                }
+                const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollTop = window.scrollY;
+                let scrollProgress = scrollTop / scrollableHeight;
+                scrollProgress = Math.min(1, Math.max(0, scrollProgress));
+                const startPosition = 5;
+                const endPosition = 0;
+                const currentPosition = startPosition - (startPosition * scrollProgress);
+                girlContainer.style.transform = `translateY(${currentPosition}%)`;
+            };
+            
+            handleScroll();
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', handleScroll);
+        });
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Manrope', sans-serif; overscroll-behavior: none; }
+        .wobbly-clip { clip-path: url(#wobbly-clip-path); }
+    </style>
+</head>
+<body class="bg-brand-surface">
+
+    <svg width="0" height="0">
+        <defs>
+            <clipPath id="wobbly-clip-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.999,0.501 C1,0.776,0.776,0.999,0.5,1 C0.224,1,0,0.776,0,0.5 C0,0.224,0.224,0,0.5,0 C0.776,0,1,0.224,0.999,0.501 Z"></path>
+            </clipPath>
+        </defs>
+    </svg>
+<div class="fixed bottom-6 right-6 flex flex-col items-end space-y-3 z-50">
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/917995111999" target="_blank"
+     class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+      <path d="M12.04 2C6.51 2 2 6.5 2 12.06c0 2.06.54 4.05 1.57 5.83L2 22l4.28-1.49A10.1 10.1 0 0 0 12.04 22c5.52 0 10.04-4.5 10.04-10.06C22.08 6.5 17.56 2 12.04 2zm0 18.26c-1.64 0-3.23-.43-4.63-1.26l-.33-.2-2.54.89.87-2.48-.22-.34A8.09 8.09 0 0 1 4 12.06C4 7.64 7.62 4 12.04 4c4.42 0 8.04 3.64 8.04 8.06 0 4.43-3.62 8.2-8.04 8.2z"/>
+      <path d="M16.68 14.9c-.27-.14-1.63-.8-1.88-.9-.25-.09-.43-.14-.6.14-.17.27-.69.9-.84 1.08-.15.17-.31.2-.58.07-.27-.13-1.14-.42-2.16-1.34-.8-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.42.11-.56.12-.12.27-.31.41-.47.14-.16.19-.27.28-.46.09-.18.05-.35-.02-.49-.07-.14-.6-1.46-.82-2-.22-.53-.44-.46-.6-.46-.15 0-.33-.02-.5-.02s-.46.07-.7.35c-.25.27-.92.9-.92 2.19 0 1.3.95 2.56 1.09 2.74.13.18 1.87 2.85 4.55 3.99.64.27 1.13.43 1.52.55.64.2 1.23.17 1.7.1.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.2.16-1.32-.07-.12-.24-.19-.5-.32z"/>
+    </svg>
+  </a>
+
+  <!-- Enquire Now Button -->
+  <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" 
+   target="_blank"
+   class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-5 py-3 rounded-full shadow-lg transition-transform transform hover:-translate-y-1">
+   Enquire Now
+</a>
+
+</div>
+    <div id="main-wrapper" class="relative w-full">
+        <header class="w-full z-50 py-6 px-4 sm:px-8 bg-[#FBF9EA]">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-3xl font-bold text-black flex-shrink-0"><img src="./Logo H.png" alt="logo" class="w-64 h-16 mr-4"></a>
+                
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-black focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+
+                <nav id="menu" class="hidden absolute top-24 left-4 right-4 bg-white rounded-xl shadow-lg p-6 z-50
+                             md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
+                <div class="flex flex-col items-center space-y-4 
+                            md:flex-row md:space-y-0 md:space-x-1"> 
+                    <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
+                    <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
+                    <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
+                        <div class="navbar_text">
+                            Campus
+                        </div>
+                        <img
+                            src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
+                            alt="Campus doodle"
+                            class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+                        />
+                    </a>
+                    <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
+                    <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
+                        <div class="navbar_text">
+                            Contact
+                        </div>
+                        
+                    </a>
+                    <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
+                    <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
+                    <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                    <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
+                </div>
+            </nav>
+            </div>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-2 min-h-screen bg-brand-bg">
+            <div class="flex flex-col justify-center p-8 sm:p-12 lg:p-20 overflow-y-auto">
+                <div class="mb-12">
+                    <h1 class="text-5xl sm:text-6xl font-extrabold text-black mb-4">Get in Touch</h1>
+                    <p class="text-lg text-gray-600">"Questions spark curiosity. Reach out, and let’s ignite your child’s journey." </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="flex items-center text-brand-green mb-3">
+                            <i class="fas fa-map-marker-alt fa-lg w-6"></i>
+                            <h3 class="font-bold text-lg ml-3">Our Location</h3>
+                        </div>
+                        <p class="text-gray-700 text-sm">2-19, Wadakpally Village, Near Kistareddypet ORR, Ameenpur Mandal, Sangareddy District, Telangana - 502319.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="flex items-center text-brand-green mb-3">
+                            <i class="fas fa-clock fa-lg w-6"></i>
+                            <h3 class="font-bold text-lg ml-3">Office Hours</h3>
+                        </div>
+                        <p class="text-gray-700 text-sm">Mon–Sat: 9 AM–5 PM<br>Sun: 10AM to 4PM </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="flex items-center text-brand-green mb-3">
+                            <i class="fas fa-phone-alt fa-lg w-6"></i>
+                            <h3 class="font-bold text-lg ml-3">Call Us</h3>
+                        </div>
+<a href="tel:+917995111999" class="text-gray-700 text-sm hover:text-brand-green transition">
+  +91-7995111999
+</a>                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
+                        <div class="flex items-center text-brand-green mb-3">
+                            <i class="fas fa-envelope fa-lg w-6"></i>
+                            <h3 class="font-bold text-lg ml-3">Email Us</h3>
+                        </div>
+                        <a href="mailto:Info.rajarshieducation@gmail.com" class="text-gray-700 text-sm hover:text-brand-green transition">Info.rajarshieducation@gmail.com</a>
+                    </div>
+                </div>
+
+                <h2 class="text-3xl font-bold text-black mb-6">Or Send a Message</h2>
+                <form action="#" method="POST">
+                    <div class="space-y-6">
+                        <input type="text" name="name" placeholder="Your Name" class="w-full bg-white px-4 py-3 border border-gray-200 rounded-lg focus:border-brand-green focus:ring focus:ring-brand-green/30 outline-none transition">
+                        <input type="email" name="email" placeholder="Email Address" class="w-full bg-white px-4 py-3 border border-gray-200 rounded-lg focus:border-brand-green focus:ring focus:ring-brand-green/30 outline-none transition">
+                        <textarea name="message" rows="4" placeholder="Your Message" class="w-full bg-white px-4 py-3 border border-gray-200 rounded-lg focus:border-brand-green focus:ring focus:ring-brand-green/30 outline-none transition resize-none"></textarea>
+                    </div>
+                    <div class="mt-8">
+                        <button type="submit" class="bg-brand-green text-white font-bold py-4 px-8 rounded-full hover:bg-opacity-90 transition-transform hover:scale-105 w-full sm:w-auto">Submit Inquiry</button>
+                    </div>
+                </form>
+            </div>
+            
+            <aside class="hidden lg:block lg:sticky lg:top-0 lg:h-screen">
+                <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-brand-green wobbly-clip animate-pulse-slow"></div>
+                    <div class="absolute inset-0 flex items-center justify-center animate-spin-slow-clockwise p-8">
+                        <img src="https://assets-global.website-files.com/66ec3a9528bbcbcda2793728/66ed7ba8ad14bc5af9a37ec7_bg-graphic-1.svg" alt="Rotating Circle Graphic" class="w-full h-full object-contain">
+                    </div>
+                    <div id="girl-animation-container" class="absolute top-[10%] bottom-0 left-[20%] right-[10%] z-10 transition-transform duration-300 ease-out">
+                        <img src="./Images/contact/contact.png" alt="A teacher holding a book" class="w-full h-full object-contain object-bottom">
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+      
+    <footer class="bg-[#111111] text-white py-20 px-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 text-center md:text-left">
+            <div class="md:col-span-2">
+                <h4 class="text-2xl font-bold mb-4">Rajarshi✦</h4>
+                <p class="text-gray-400">Where ancient wisdom meets tomorrow’s leaders. </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                    <li><a href="academics.html" class="text-gray-400 hover:text-white">Academics</a></li>
+                    <li><a href="campus.html" class="text-gray-400 hover:text-white">Campus</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Support</h4>
+                <ul class="space-y-2">
+                    <li><a href="admissions.html" class="text-gray-400 hover:text-white">Admissions</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    <li><a href="admissions.html#fees" class="text-gray-400 hover:text-white">Fees & Policies</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2 text-center md:text-right">
+                <h4 class="font-bold mb-4">Connect With Us</h4>
+                <div class="flex justify-center md:justify-end space-x-4 mb-4">
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓕ</a>
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓘ</a>
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓛ</a>
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓧ</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto mt-16 text-center border-t border-gray-800 pt-8">
+            <p class="text-gray-500">© 2025 Rajarshi International School. All Rights Reserved. </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+

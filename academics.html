@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Rajarshi International School</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Google Font - Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #FBF9EA;
+            color: #1A4742;
+            overscroll-behavior: none;
+        }
+
+        /* Header Styles */
+        nav a {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #000000;
+         
+        }
+        .container {
+            max-width: 1400px;
+        }
+
+        /* Horizontal Scroll Section */
+        .horizontal-scroll-section {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .panels-container {
+            width: 500%; /* 100% for each of the 5 panels */
+            height: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .panel {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .panel-content {
+            z-index: 10;
+            max-width: 400px;
+            padding: 2rem;
+            background: rgba(251, 249, 234, 0.8); /* Semi-transparent background */
+            backdrop-filter: blur(10px);
+            
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .panel-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 60%;
+            z-index: 1;
+            transform: scale(1.1); /* Start slightly zoomed in */
+        }
+        /* For screens 768px and wider (tablets and desktops) */
+        @media (min-width: 768px) {
+            .panel-bg {
+                width: 40%;
+                height: 40%;
+            }
+             .panel-content {
+           
+            max-width: 900px;
+            padding: 4rem;
+           
+        }
+        }
+    </style>
+</head>
+<body class="antialiased">
+<div class="fixed bottom-6 right-6 flex flex-col items-end space-y-3 z-50">
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/917995111999" target="_blank"
+     class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+      <path d="M12.04 2C6.51 2 2 6.5 2 12.06c0 2.06.54 4.05 1.57 5.83L2 22l4.28-1.49A10.1 10.1 0 0 0 12.04 22c5.52 0 10.04-4.5 10.04-10.06C22.08 6.5 17.56 2 12.04 2zm0 18.26c-1.64 0-3.23-.43-4.63-1.26l-.33-.2-2.54.89.87-2.48-.22-.34A8.09 8.09 0 0 1 4 12.06C4 7.64 7.62 4 12.04 4c4.42 0 8.04 3.64 8.04 8.06 0 4.43-3.62 8.2-8.04 8.2z"/>
+      <path d="M16.68 14.9c-.27-.14-1.63-.8-1.88-.9-.25-.09-.43-.14-.6.14-.17.27-.69.9-.84 1.08-.15.17-.31.2-.58.07-.27-.13-1.14-.42-2.16-1.34-.8-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.42.11-.56.12-.12.27-.31.41-.47.14-.16.19-.27.28-.46.09-.18.05-.35-.02-.49-.07-.14-.6-1.46-.82-2-.22-.53-.44-.46-.6-.46-.15 0-.33-.02-.5-.02s-.46.07-.7.35c-.25.27-.92.9-.92 2.19 0 1.3.95 2.56 1.09 2.74.13.18 1.87 2.85 4.55 3.99.64.27 1.13.43 1.52.55.64.2 1.23.17 1.7.1.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.2.16-1.32-.07-.12-.24-.19-.5-.32z"/>
+    </svg>
+  </a>
+
+  <!-- Enquire Now Button -->
+  <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" 
+   target="_blank"
+   class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-5 py-3 rounded-full shadow-lg transition-transform transform hover:-translate-y-1">
+   Enquire Now
+</a>
+
+</div>
+    <div id="main-wrapper" class="relative w-full">
+
+        <!-- HEADER -->
+        <header class="w-full z-50 py-6 px-4 sm:px-8 bg-[#FBF9EA]">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-3xl font-bold text-black flex-shrink-0"><img src="./Logo H.png" alt="logo" class="w-64 h-16 mr-4"></a>
+                
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-black focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <nav id="menu" class="hidden absolute top-24 left-4 right-4 bg-white rounded-xl shadow-lg p-6 z-50
+                             md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
+                    <div class="flex flex-col items-center space-y-4 
+                                md:flex-row md:space-y-0 md:space-x-1"> 
+                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
+                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
+                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
+                            <div class="navbar_text">
+                                Campus
+                            </div>
+                            <img
+                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
+                                alt="Campus doodle"
+                                class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+                            />
+                        </a>
+                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
+                        <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
+                            <div class="navbar_text">
+                                Contact
+                            </div>
+                            <img
+                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec8e16f271366244f120e2_doodle-2.svg"
+                                alt="Contact doodle"
+                                class="absolute top-[18px] inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+                            />
+                        </a>
+                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
+                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
+                        <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                    <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
+                    </div>
+                </nav>
+
+                
+            </div>
+        </header>
+        <main>
+            <!-- Hero Section -->
+            <section class="h-screen flex flex-col justify-center items-center text-center pt-24 px-4 sm:px-8 bg-[#FBF9EA]">
+                <p class="text-lg font-bold tracking-widest text-yellow-500 mb-4 hero-item">OUR ACADEMICS</p>
+                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter leading-tight text-[#1A4742] hero-item">
+                    A Journey Through Learning
+                </h1>
+                <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto hero-item">
+                   We restore what was already great—then make it even better.
+                </p>
+                <div class="mt-12 hero-item">
+                    <i class="fas fa-chevron-down text-4xl text-yellow-500 animate-bounce"></i>
+                </div>
+            </section>
+            
+            <!-- Horizontal Scroll Section -->
+            <!-- <section class="horizontal-scroll-section">
+                <div class="panels-container">
+                    <!-- Panel 1: Shastra+STEAM -->
+                    <!-- <div class="panel" style="background-color: #1A4742;">
+                        <h1 class="text-6xl md:text-8xl  absolute m-8 md:m-20  top-[0] left-[0] text-bold text-[#FBF9EA]" >SCIENCE</h1>
+                        <div class="panel-content text-center">
+                            <i class="fas fa-atom text-5xl text-yellow-500 mb-4"></i>
+                            <h2 class="text-4xl font-bold mb-4 text-[#1A4742]">Shastra+STEAM</h2>
+                            <p class="text-lg text-gray-700 mb-4">Hands-on innovation, fueled by India’s ageless wisdom.</p>
+                            <ul class="text-left list-disc list-inside text-gray-600 space-y-2">
+                                <li>Weekly Shastra Circles (Puranic tales)</li>
+                                <li>Hands-on STEAM Labs building filters & bridges</li>
+                                <li>Project Nirman Fair each term</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    <!-- <div class="panel" style="background-color: #9FDACC;">
+                        <h1 class="text-6xl md:text-8xl  absolute m-8 md:m-20  top-[0] left-[0] text-bold text-[#1A4742]" >VALUES</h1>
+                        <div class="panel-content text-center">
+                            <i class="fas fa-heart text-5xl text-yellow-500 mb-4"></i>
+                            <h2 class="text-4xl font-bold mb-4 text-[#1A4742]">Samskara360</h2>
+                            <p class="text-lg text-gray-700 mb-4">Character built with daily reflections and epic storytelling.</p>
+                            <ul class="text-left list-disc list-inside text-gray-600 space-y-2">
+                                <li>Daily Gratitude Circles & Mindful Moments</li>
+                                <li>Weekly Epic Echoes (Ramayana/Mahabharata)</li>
+                                <li>Bi-weekly Value Journaling</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    <!-- <div class="panel" style="background-color: #FFD166;">
+                        <h1 class="text-6xl md:text-8xl  absolute m-8 md:m-20  top-[0] left-[0] text-bold text-[#1A4742]" >MENTORSHIP</h1>
+                         <div class="panel-content text-center">
+                            <i class="fas fa-users text-5xl text-green-800 mb-4"></i>
+                            <h2 class="text-4xl font-bold mb-4 text-[#1A4742]">Gurukul Grid</h2>
+                            <p class="text-lg text-gray-700 mb-4">Mentorship reimagined—small circles, big impact.</p>
+                            <ul class="text-left list-disc list-inside text-gray-600 space-y-2">
+                                <li>Mentor Circles with a 1:10 teacher-student ratio</li>
+                                <li>Morning chants and "Paath" presentations</li>
+                                <li>Mixed-age Learning Pods for collaboration</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    <!-- <div class="panel" style="background-color: #E85040;">
+                        <h1 class="text-6xl md:text-8xl  absolute m-8 md:m-20  top-[0] left-[0] text-bold text-[#FBF9EA]" >TECHNOLOGY</h1>
+                        <div class="panel-content text-center">
+                            <i class="fas fa-laptop-code text-5xl text-yellow-400 mb-4"></i>
+                            <h2 class="text-4xl font-bold mb-4 text-[#1A4742]">Digital-First Mindset</h2>
+                            <p class="text-lg text-gray-700 mb-4">VR journeys, live parent-teacher chat, real-time progress.</p>
+                            <ul class="text-left list-disc list-inside text-gray-600 space-y-2">
+                                <li>School-wide LMS & Parent App</li>
+                                <li>Interactive AV Studio & VR Kits</li>
+                                <li>Digital Badges for micro-credentials</li>
+                            </ul>
+                        </div>
+                    </div> -->
+                    <!-- <div class="panel" style="background-color: #DCE9E4;">
+                         
+                         <h1 class="text-6xl md:text-8xl  absolute m-8 md:m-20 top-[0] left-[0] text-bold text-[#1A4742]" >GLOBAL</h1>
+                         <div class="panel-content text-center">
+                            <i class="fas fa-globe-asia text-5xl text-yellow-500 mb-4"></i>
+                            <h2 class="text-4xl font-bold mb-4 text-[#1A4742]">World-Ready, Root-Deep</h2>
+                            <p class="text-lg text-gray-700 mb-4">Speak Sanskrit at sunrise; code Python by sundown.</p>
+                            <ul class="text-left list-disc list-inside text-gray-600 space-y-2">
+                                <li>Trilingual fluency (English, Hindi, Telugu)</li>
+                                <li>Virtual pen-pals & international webinars</li>
+                                <li>Ethics Lab with real-world case studies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+            <!-- </section>  --> 
+             <section class="horizontal-scroll-section">
+  <div class="panels-container">
+
+    <!-- Panel 1: Shastra+STEAM (Dark background – keep light text) -->
+    <div class="panel bg-gradient-to-r from-[#1A4742] to-[#2D8B6F] text-[#0B1F1C]">
+      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold">SCIENCE</h1>
+      <div class="panel-content text-center">
+        <i class="fas fa-atom text-5xl text-yellow-400 mb-4"></i>
+        <h2 class="text-4xl font-bold mb-4">Shastra+STEAM</h2>
+        <p class="text-lg text-[#0B1F1C]/90 mb-4">Hands-on innovation, fueled by India’s ageless wisdom.</p>
+        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+          <li>Weekly Shastra Circles (Puranic tales)</li>
+          <li>Hands-on STEAM Labs building filters & bridges</li>
+          <li>Project Nirman Fair each term</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panel 2: Samskara360 (Light background – dark text) -->
+    <div class="panel bg-gradient-to-r from-[#9FDACC] to-[#67BDA9] text-[#0B1F1C]">
+      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">VALUES</h1>
+      <div class="panel-content text-center">
+        <i class="fas fa-heart text-5xl text-red-500 mb-4"></i>
+        <h2 class="text-4xl font-bold mb-4">Samskara360</h2>
+        <p class="text-lg text-[#0B1F1C]/90 mb-4">Character built with daily reflections and epic storytelling.</p>
+        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+          <li>Daily Gratitude Circles & Mindful Moments</li>
+          <li>Weekly Epic Echoes (Ramayana/Mahabharata)</li>
+          <li>Bi-weekly Value Journaling</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panel 3: Gurukul Grid (Light yellow – dark text) -->
+    <div class="panel bg-gradient-to-r from-[#FFD166] to-[#FCA311] text-[#0B1F1C]">
+      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">MENTORSHIP</h1>
+      <div class="panel-content text-center">
+        <i class="fas fa-users text-5xl text-green-700 mb-4"></i>
+        <h2 class="text-4xl font-bold mb-4">Gurukul Grid</h2>
+        <p class="text-lg text-[#0B1F1C]/90 mb-4">Mentorship reimagined—small circles, big impact.</p>
+        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+          <li>Mentor Circles with a 1:10 teacher-student ratio</li>
+          <li>Morning chants and “Paath” presentations</li>
+          <li>Mixed-age Learning Pods for collaboration</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panel 4: Digital-First Mindset (Dark red – keep light text) -->
+    <div class="panel bg-gradient-to-r from-[#E85040] to-[#F77E6E] text-[#0B1F1C]">
+      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold">TECHNOLOGY</h1>
+      <div class="panel-content text-center">
+        <i class="fas fa-laptop-code text-5xl text-yellow-300 mb-4"></i>
+        <h2 class="text-4xl font-bold mb-4">Digital-First Mindset</h2>
+        <p class="text-lg text-[#0B1F1C]/90 mb-4">VR journeys, live parent-teacher chat, real-time progress.</p>
+        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+          <li>School-wide LMS & Parent App</li>
+          <li>Interactive AV Studio & VR Kits</li>
+          <li>Digital Badges for micro-credentials</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Panel 5: World-Ready, Root-Deep (Very light background – dark text) -->
+    <div class="panel bg-gradient-to-r from-[#DCE9E4] to-[#B7D8C7] text-[#0B1F1C]">
+      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">GLOBAL</h1>
+      <div class="panel-content text-center">
+        <i class="fas fa-globe-asia text-5xl text-yellow-600 mb-4"></i>
+        <h2 class="text-4xl font-bold mb-4">World-Ready, Root-Deep</h2>
+        <p class="text-lg text-[#0B1F1C]/90 mb-4">Speak Sanskrit at sunrise; code Python by sundown.</p>
+        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+          <li>Trilingual fluency (English, Hindi, Telugu)</li>
+          <li>Virtual pen-pals & international webinars</li>
+          <li>Ethics Lab with real-world case studies</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+            
+            <!-- Closing Section -->
+            <section class="h-screen flex flex-col justify-center items-center text-center px-4 sm:px-8 bg-[#FBF9EA]">
+                <h2 class="text-4xl sm:text-5xl font-bold text-[#1A4742]">Ready to Begin?</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Our unique approach ensures every student leaves not just with a report card, but with a sense of who they are.
+                </p>
+                <a href="admissions.html" class="mt-8 bg-[#1A4742] text-white font-bold py-4 px-10 rounded-full hover:bg-opacity-90 transition-transform hover:scale-105">
+                    Start Your Admission Journey
+                </a>
+            </section>
+        </main>
+        <footer class="bg-[#111111] text-white py-20 px-4 sm:px-8">
+            <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 text-center md:text-left">
+                <div class="md:col-span-2">
+                    <h4 class="text-2xl font-bold mb-4">Rajarshi</h4>
+                    <p class="text-gray-400">Where ancient wisdom meets tomorrow’s leaders.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="academics.html" class="text-gray-400 hover:text-white">Academics</a></li>
+                        <li><a href="campus.html" class="text-gray-400 hover:text-white">Campus</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="admissions.html" class="text-gray-400 hover:text-white">Admissions</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="admissions.html#fees" class="text-gray-400 hover:text-white">Fees & Policies</a></li>
+                    </ul>
+                </div>
+                <div class="sm:col-span-2 md:col-span-2 text-center md:text-right">
+                    <h4 class="font-bold mb-4">Connect With Us</h4>
+                    <div class="flex justify-center md:justify-end space-x-4 mb-4">
+                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓕ</a>
+                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓘ</a>
+                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓛ</a>
+                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓧ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto mt-16 text-center border-t border-gray-800 pt-8">
+                <p class="text-gray-500">© 2025 Rajarshi International School. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const menuBtn = document.getElementById('menu-btn');
+            const menu = document.getElementById('menu');
+
+            menuBtn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+            });
+
+            // --- Hero Section Animation ---
+            gsap.from(".hero-item", {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.2
+            });
+
+            // --- Horizontal Scroll Animation ---
+            const panels = gsap.utils.toArray(".panel");
+            const panelsContainer = document.querySelector(".panels-container");
+
+            gsap.to(panels, {
+                xPercent: -100 * (panels.length - 1),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ".horizontal-scroll-section",
+                    pin: true,
+                    scrub: 1,
+                    snap: 1 / (panels.length - 1),
+                    end: () => "+=" + panelsContainer.offsetWidth
+                }
+            });
+            
+            // --- Panel Content & BG Animations ---
+            panels.forEach((panel, i) => {
+                const bg = panel.querySelector(".panel-bg");
+                const content = panel.querySelector(".panel-content");
+
+                // Background zoom-out effect
+                gsap.from(bg, {
+                    scale: 1.3,
+                    scrollTrigger: {
+                        trigger: panel,
+                        containerAnimation: gsap.to(panels, { xPercent: -100 * (panels.length - 1) }),
+                        scrub: 1
+                    }
+                });
+                
+                // Content fade-in effect
+                gsap.from(content, {
+                    opacity: 0,
+                    y: 50,
+                    scale: 0.95,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: panel,
+                        containerAnimation: gsap.to(panels, { xPercent: -100 * (panels.length - 1) }),
+                        start: "left center",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

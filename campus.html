@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus - Rajarshi International School</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP & ScrollTrigger CDN (for advanced animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Google Font - Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            overscroll-behavior: none; /* Prevents scroll chaining */
+            background-color: #FBF9EA; /* Consistent background */
+            color: #1A4742; /* Consistent text color */
+        }
+        /* My custom styles for dropdowns and animations */
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            padding-top: 1rem;
+            z-index: 10; /* Ensure dropdown is above other content */
+        }
+        .nav-link-container:hover .dropdown { display: block; }
+
+        img {
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(105%) brightness(102%) saturate(110%);
+}
+        .active-thumbnail {
+            border-color: white; /* A bright yellow to indicate selection */
+            transform: scale(1.1);
+        }
+
+        /* My styles for header consistency */
+        nav a {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #000000;
+        }
+        .container {
+            max-width: 1400px;
+        }
+
+        /* --- NEW: Floating Bubbles/Orbs for Facilities Section --- */
+        .bubble-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none; /* Allows clicks to pass through */
+        }
+
+        .bubble {
+            position: absolute;
+            background-color: rgba(255, 209, 102, 0.5); /* #FFD166 with opacity */
+            border-radius: 50%;
+            opacity: 0; /* Start hidden, will be animated by GSAP */
+            filter: blur(8px); /* Soft blur for a dreamy effect */
+        }
+
+        /* Define different bubble sizes and colors */
+        .bubble-sm { width: 40px; height: 40px; background-color: rgba(255, 209, 102, 0.4); }
+        .bubble-md { width: 70px; height: 70px; background-color: rgba(255, 209, 102, 0.6); }
+        .bubble-lg { width: 100px; height: 100px; background-color: rgba(255, 209, 102, 0.5); }
+        .bubble-xl { width: 130px; height: 130px; background-color: rgba(255, 209, 102, 0.3); }
+    </style>
+</head>
+<body class="bg-[#F8F5F1]">
+
+    <div id="main-wrapper" class="relative w-full">
+
+        <!-- My HEADER - Updated to match index.html with Rajarshi logo -->
+        <header class="w-full z-50 py-6 px-4 sm:px-8 bg-[#FBF9EA]">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-3xl font-bold text-black flex-shrink-0"><img src="./Logo H.png" alt="logo" class="w-64 h-16 mr-4"></a>
+                
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-black focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <nav id="menu" class="hidden absolute top-24 left-4 right-4 bg-white rounded-xl shadow-lg p-6 z-50
+                             md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
+            <div class="flex flex-col items-center space-y-4 
+                        md:flex-row md:space-y-0 md:space-x-1"> 
+                <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
+                <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
+                <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
+                    <div class="navbar_text">
+                        Campus
+                    </div>
+                    <img
+                        src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
+                        alt="Campus doodle"
+                        class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+                    />
+                </a>
+                <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
+                <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
+                    <div class="navbar_text">
+                        Contact
+                    </div>
+                    <img
+                        src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec8e16f271366244f120e2_doodle-2.svg"
+                        alt="Contact doodle"
+                        class="absolute top-[18px] inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
+                    />
+                </a>
+                <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
+                <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
+                <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                    <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
+            </div>
+        </nav>
+
+                
+                </div>
+        </header>
+<div class="fixed bottom-6 right-6 flex flex-col items-end space-y-3 z-50">
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/917995111999" target="_blank"
+     class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+      <path d="M12.04 2C6.51 2 2 6.5 2 12.06c0 2.06.54 4.05 1.57 5.83L2 22l4.28-1.49A10.1 10.1 0 0 0 12.04 22c5.52 0 10.04-4.5 10.04-10.06C22.08 6.5 17.56 2 12.04 2zm0 18.26c-1.64 0-3.23-.43-4.63-1.26l-.33-.2-2.54.89.87-2.48-.22-.34A8.09 8.09 0 0 1 4 12.06C4 7.64 7.62 4 12.04 4c4.42 0 8.04 3.64 8.04 8.06 0 4.43-3.62 8.2-8.04 8.2z"/>
+      <path d="M16.68 14.9c-.27-.14-1.63-.8-1.88-.9-.25-.09-.43-.14-.6.14-.17.27-.69.9-.84 1.08-.15.17-.31.2-.58.07-.27-.13-1.14-.42-2.16-1.34-.8-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.42.11-.56.12-.12.27-.31.41-.47.14-.16.19-.27.28-.46.09-.18.05-.35-.02-.49-.07-.14-.6-1.46-.82-2-.22-.53-.44-.46-.6-.46-.15 0-.33-.02-.5-.02s-.46.07-.7.35c-.25.27-.92.9-.92 2.19 0 1.3.95 2.56 1.09 2.74.13.18 1.87 2.85 4.55 3.99.64.27 1.13.43 1.52.55.64.2 1.23.17 1.7.1.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.2.16-1.32-.07-.12-.24-.19-.5-.32z"/>
+    </svg>
+  </a>
+
+  <!-- Enquire Now Button -->
+  <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" 
+   target="_blank"
+   class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-5 py-3 rounded-full shadow-lg transition-transform transform hover:-translate-y-1">
+   Enquire Now
+</a>
+
+</div>
+        <main id="scroll-content">
+
+            <section id="hero" class="h-screen w-screen relative bg-[#FCF9EC]  flex justify-center items-center">
+                <div id="image-container" class="relative overflow-hidden">
+                    <img src="./Images/Gallery/DSC00622.JPG"
+                         alt="Aerial view of a campus"
+                         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-screen h-screen max-w-none object-cover">
+                </div>
+
+                <div id="hero-info" class="absolute inset-0 flex bg-[#01664E] flex-col items-center justify-center text-white text-center overflow-hidden">
+                    <p class="text-lg mb-2">EXPLORE</p>
+                    <h1 class="text-7xl md:text-9xl font-bold">Our Campus</h1>
+                    <h2 class="text-3xl md:text-5xl font-bold max-w-4xl leading-tight mt-4">Every Space. A Purpose. Every Corner. A Possibility.</h2>
+
+                    <!-- <img id="parallax-img-1" src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66f1675d78939bc66daec70e_pexels-max-fischer-5212329.webp" class="hidden lg:block absolute rounded-lg shadow-lg pointer-events-none w-auto h-40"> -->
+
+                    <!-- <img id="parallax-img-2" src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66f1675d78939bc66daec70e_pexels-max-fischer-5212329.webp" class="hidden lg:block absolute rounded-lg shadow-lg pointer-events-none w-auto h-40"> -->
+                    <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66f2c344372972c0c1080c59_line-bg.svg" alt="" class="absolute bottom-[-80px] left-10 w-80 h-auto object-cover">
+                </div>
+
+            </section>
+            <section class="what-we-do-section bg-[#FBF9EA] pt-32 px-8 text-center">
+                <div class="container mx-auto">
+                    <p class="text-2xl uppercase tracking-widest mb-6 reveal-up">About Our Campus</p>
+                    <h2 class="text-3xl md:text-xl mt-2 max-w-8xl mx-auto text-[#1A4742] reveal-up text-justify">
+                        At Rajarshi, our campus is designed to inspire. We blend traditional wisdom with modern facilities to create an environment where curiosity thrives and every child can discover their full potential.
+                    </h2>
+                    <div class="mt-20 max-w-8xl mx-auto reveal-up">
+                         <img src="./Images/campus/camp2.png" alt="Students engaging in a learning activity" class="w-full relative z-10 rounded-lg">
+                         <img id="yellow-bg-graphic" src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66f1790b4ac33a6c33cd0bfa_bg-graphic-2.svg" loading="lazy" alt="Decorative background graphic" class="home-goal_bg-graphic absolute bottom-0 left-0 w-full z-0 rounded-lg">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Campus Facilities Section - Now with Floating Bubbles Animation -->
+            <section class="bg-[#9FDACC] py-20 sm:py-28 px-4 sm:px-8 relative overflow-hidden" id="facilities-section">
+                <div class="bubble-container">
+                    <div class="bubble bubble-lg" style="top: 10%; left: 5%;"></div>
+                    <div class="bubble bubble-md" style="top: 30%; right: 15%;"></div>
+                    <div class="bubble bubble-xl" style="bottom: 20%; left: 20%;"></div>
+                    <div class="bubble bubble-sm" style="top: 50%; left: 40%;"></div>
+                    <div class="bubble bubble-lg" style="bottom: 10%; right: 5%;"></div>
+                    <div class="bubble bubble-md" style="top: 5%; right: 40%;"></div>
+                    <div class="bubble bubble-sm" style="top: 70%; left: 50%;"></div>
+                    <div class="bubble bubble-xl" style="top: 25%; left: 70%;"></div>
+                </div>
+
+                <div class="max-w-7xl mx-auto relative z-10">
+                    <p class="text-lg font-bold tracking-widest mb-4 opacity-80 text-center">OUR FACILITIES</p>
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-12 max-w-4xl text-[#1A4742] text-center mx-auto">Spaces Designed for Discovery and Growth</h2>
+
+                   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+    
+    <div class="bg-red-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Kinder Nest</h3>
+        <p>A cozy, sensorily rich play and exploration zone for early learners, blending soft seating, manipulatives, and nature-inspired sensory stations.</p>
+    </div>
+
+    <div class="bg-yellow-400 text-black p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Maker’s Space</h3>
+        <p>A hands-on maker’s lab equipped with robotics kits, and prototyping tools to fuel design-thinking and collaboration.</p>
+    </div>
+
+    <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">The Harmony Room</h3>
+        <p>A state-of-the-art music studio designed for sonic precision and artistic performance.</p>
+    </div>
+
+    <div class="bg-green-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">The Movement Lab</h3>
+        <p>Where dance meets discovery, one step at a time.</p>
+    </div>
+
+    <div class="bg-pink-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Art Circuit</h3>
+        <p>A flexible visual-arts studio featuring easels and mixed-media supplies to develop artistic skills and design literacy.</p>
+    </div>
+
+    <div class="bg-orange-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Logic Lounge</h3>
+        <p>A math and reasoning hub with interactive tables and puzzle walls to make abstract concepts tangible.</p>
+    </div>
+
+    <div class="bg-purple-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Discovery Zone</h3>
+        <p>A fully outfitted science lab for inquiry-based experimentation.</p>
+    </div>
+
+    <div class="bg-cyan-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Mindfulness Bay</h3>
+        <p>A tranquil wellness alcove with mats, guided-practice stations, and mood-meter walls for emotional check-ins.</p>
+    </div>
+
+    <div class="bg-teal-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Reading Loft</h3>
+        <p>A library haven with cozy nooks, shelves, and digital reading stations fostering literacy and research skills.</p>
+    </div>
+
+    <div class="bg-indigo-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">Game Square Arena</h3>
+        <p>A multi-sport indoor complex promoting teamwork, coordination, and physical wellness.</p>
+    </div>
+
+    <div class="bg-amber-500 text-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 facility-card">
+        <h3 class="text-2xl font-bold mb-2">The Digital Den</h3>
+        <p>A dynamic tech haven where students dive into hands-on learning with coding and digital design.</p>
+    </div>
+
+</div>
+                </div>
+            </section>
+
+            <section class="campus-section h-[780px] w-full relative text-white overflow-hidden">
+        
+                
+                <img 
+                     id="main-image"
+                     src="./Images/Gallery/DSC00633.JPG" 
+                     alt="Students walking on a university campus"
+                     class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out" 
+                     onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2070&auto=format&fit=crop';"
+                />
+                
+                <!-- Dark Overlay for Text Readability -->
+                <div class="absolute inset-0 bg-black/40"></div>
+        
+                
+                <div id="thumbnail-gallery" class="absolute mt-2 h-full top-6 right-6 z-20 flex space-x-3">
+                    <!-- 
+                      Each thumbnail image:
+                      - Has a `data-src` attribute holding the URL for its full-size version.
+                      - Has a `thumbnail` class for event delegation.
+                      - The first one has the `active-thumbnail` class by default.
+                    -->
+                    <img src="./Images/Gallery/DSC00633.JPG" 
+                        data-src="./Images/Gallery/DSC00633.JPG"
+                        alt="Thumbnail of students walking"
+                        class="active-thumbnail thumbnail w-20 h-20 md:w-24 md:h-24 rounded-full object-cover cursor-pointer  shadow-lg transition-all duration-300 active-thumbnail"
+                        onerror="this.onerror=null;this.src='https://placehold.co/200x200/cccccc/666666?text=Thumb';">
+
+                    <img src="./Images/Gallery/DSC01071.JPG"
+                        data-src="./Images/Gallery/DSC01071.JPG"
+                        alt="Thumbnail of graduation ceremony"
+                        class="thumbnail w-20 h-20 md:w-24 md:h-24 rounded-full object-cover cursor-pointer  shadow-lg transition-all duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/200x200/cccccc/666666?text=Thumb';">
+
+                    <img src="./Images/Gallery/DSC01079.JPG"
+                        data-src="./Images/Gallery/DSC01079.JPG"
+                        alt="Thumbnail of students in a classroom"
+                        class="thumbnail w-20 h-20 md:w-24 md:h-24 rounded-full object-cover cursor-pointer shadow-lg transition-all duration-300"
+                        onerror="this.onerror=null;this.src='https://placehold.co/200x200/cccccc/666666?text=Thumb';">
+                </div>
+        
+
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center p-8">
+                    <p class="text-2xl uppercase tracking-widest mb-4 opacity-90">Our Campus</p>
+                    <h2 class="text-5xl md:text-7xl font-bold max-w-4xl leading-tight">Every Space </h2>
+                    <h3 class="text-3xl md:text-5xl font-bold max-w-4xl leading-tight">-A Purpose .</h3>
+                    <h2 class="text-5xl md:text-7xl font-bold max-w-4xl leading-tight">Every Corner.</h2> 
+                    <h3 class= "text-3xl md:text-5xl font-bold max-w-4xl leading-tight">-A Possibility.</h3> 
+                </div>
+            </section>
+
+
+        </main>
+
+        <!-- FOOTER - My footer for consistency across pages -->
+        <footer class="bg-[#111111] text-white py-20 px-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 text-center md:text-left">
+            <div class="md:col-span-2">
+                <h4 class="text-2xl font-bold mb-4">Rajarshi✦</h4>
+                <p class="text-gray-400">Where ancient wisdom meets tomorrow’s leaders. <p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                    <li><a href="academics.html" class="text-gray-400 hover:text-white">Academics</a></li>
+                    <li><a href="campus.html" class="text-gray-400 hover:text-white">Campus</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Support</h4>
+                <ul class="space-y-2">
+                    <li><a href="admissions.html" class="text-gray-400 hover:text-white">Admissions</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    <li><a href="admissions.html#fees" class="text-gray-400 hover:text-white">Fees & Policies</a></li>
+                </ul>
+            </div>
+            <div class="md:col-span-2 text-center md:text-right">
+                <h4 class="font-bold mb-4">Connect With Us</h4>
+                <div class="flex justify-center md:justify-end space-x-4 mb-4">
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓕ</a>
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓘ</a>
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓛ</a>
+                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓧ</a>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto mt-16 text-center border-t border-gray-800 pt-8">
+            <p class="text-gray-500">© 2025 Rajarshi International School. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const menuBtn = document.getElementById('menu-btn');
+            const menu = document.getElementById('menu');
+
+            menuBtn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+                menu.classList.toggle('flex');
+            });
+
+             // --- My Hero Zoom-out and Fade-in Animation ---
+             gsap.set("#image-container", { width: "50vw", height: "40vh" });
+
+             gsap.set("#hero-info", { opacity: 0 });
+             gsap.set("#parallax-img-1", {
+                top: `${gsap.utils.random(15, 50)}%`, // Random top position
+                left: `${gsap.utils.random(5, 20)}%`   // Random left position
+            });
+            // Image 2 on the right
+            gsap.set("#parallax-img-2", {
+                top: `${gsap.utils.random(40, 75)}%`, // Random top position
+                right: `${gsap.utils.random(5, 20)}%` // Random right position
+            });// Start with the info hidden
+
+             // Create a single timeline to manage both animations sequentially
+             const heroTimeline = gsap.timeline({
+                 scrollTrigger: {
+                     trigger: "#hero",
+                     start: "top top",
+                     end: "+=150%",
+                     scrub: 1,
+                     pin: true,
+                 },
+             });
+
+             // Add tweens to the timeline to run one after the other.
+             // First, the image container expands completely.
+             heroTimeline.to("#image-container", {
+                 width: "100vw",
+                 height: "100vh",
+                 ease: "none",
+             });
+
+             // SECOND, after the reveal is done, the info fades in.
+             const infoTimeline = gsap.timeline();
+                infoTimeline
+                    .to("#hero-info", { // Fade in the container (text and images)
+                        opacity: 1,
+                        ease: "none"
+                    })
+                    .to("#parallax-img-1", { // Animate image 1 up
+                        yPercent: -90,
+                        ease: "none"
+                    }, 0)
+                    .to("#parallax-img-2", { // Animate image 2 up at a different speed
+                        yPercent: -90,
+                        ease: "none"
+                    }, 0);
+
+    // Add the nested info timeline to the main hero timeline
+    heroTimeline.add(infoTimeline);
+
+
+
+            gsap.to("#bg-graphic", {
+                scrollTrigger: {
+                trigger: ".reveal-up",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+                },
+                rotate: 180,
+                x: 100,
+                y: 100,
+                ease: "none"
+            });
+
+            gsap.set("#yellow-bg-graphic", {transformOrigin: "center"});
+
+// Create the scroll-triggered animation
+gsap.to("#yellow-bg-graphic", {
+    scale: 1.25, // Scales the image up by 15%
+    ease: "none",
+    scrollTrigger: {
+        trigger: "#yellow-bg-graphic", // The element that triggers the animation
+        start: "top bottom",    // Starts when the top of the image hits the bottom of the screen
+        end: "bottom top",      // Ends when the bottom of the image hits the top of the screen
+        scrub: true             // Smoothly links the animation to the scrollbar
+    }
+});
+            // --- My SCROLL-TRIGGERED BACKGROUND COLOR CHANGE ---
+            const sections = [
+                { selector: ".what-we-do-section", color: "#FBF9EA" },
+                { selector: "#facilities-section", color: "#9FDACC" },
+                { selector: ".campus-section", color: "#F8F5F1" },
+                { selector: ".testimonial-section", color: "#FBF9EA" }
+            ];
+
+            sections.forEach(section => {
+                gsap.to("#main-wrapper", {
+                    backgroundColor: section.color,
+                    immediateRender: false,
+                    scrollTrigger: {
+                        trigger: section.selector,
+                        start: "top center",
+                        end: "bottom center",
+                        scrub: 1
+                    }
+                });
+            });
+
+            // --- My REVEAL ON SCROLL ANIMATION ---
+            const revealElements = gsap.utils.toArray('.reveal-up');
+            revealElements.forEach(elem => {
+                gsap.fromTo(elem,
+                    { y: 50, autoAlpha: 0 },
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 1,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+        const mainImage = document.getElementById('main-image');
+        const gallery = document.getElementById('thumbnail-gallery');
+        const thumbnails = gallery.querySelectorAll('.thumbnail');
+
+        gallery.addEventListener('click', function(e) {
+            // Check if a thumbnail was clicked
+            if (!e.target.classList.contains('thumbnail')) {
+                return;
+            }
+
+            const clickedThumbnail = e.target;
+
+            // Do nothing if the clicked thumbnail is already active
+            if (clickedThumbnail.classList.contains('active-thumbnail')) {
+                return;
+            }
+
+            // Get the new image source from the data attribute
+            const newImageSrc = clickedThumbnail.dataset.src;
+
+            // --- GSAP Animation for a smooth cross-fade ---
+            gsap.to(mainImage, {
+                opacity: 0, // 1. Fade out the current image
+                duration: 0.2,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    mainImage.src = newImageSrc; // 2. Change the image source
+                    gsap.to(mainImage, {
+                        opacity: 1, // 3. Fade in the new image
+                        duration: 0.2,
+                        ease: 'power2.inOut'
+                    });
+                }
+            });
+
+            // --- Update the active state on thumbnails ---
+            // Remove active class from all thumbnails
+            thumbnails.forEach(thumb => thumb.classList.remove('active-thumbnail'));
+            // Add active class to the one that was just clicked
+            clickedThumbnail.classList.add('active-thumbnail');
+        });
+
+        // --- NEW: Facilities Section Animations (Floating Bubbles and Card Reveals) ---
+        // Animate bubbles to float around the section
+        gsap.utils.toArray(".bubble").forEach(bubble => {
+            gsap.to(bubble, {
+                y: "random(-50, 50)", // Float vertically
+                x: "random(-50, 50)", // Float horizontally
+                rotation: "random(0, 360)", // Rotate randomly
+                opacity: 0.8, // Make them visible
+                scale: "random(0.8, 1.2)", // Slightly vary size
+                duration: "random(10, 20)", // Vary animation speed
+                ease: "sine.inOut",
+                repeat: -1,
+                yoyo: true, // Go back and forth
+                delay: "random(0, 5)", // Stagger start times
+                scrollTrigger: {
+                    trigger: "#facilities-section",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true, // Link to scroll for subtle parallax
+                }
+            });
+        });
+
+        // Animate facility cards to fade in and slightly scale up
+        gsap.utils.toArray(".facility-card").forEach(card => {
+            gsap.fromTo(card,
+                { opacity: 0, y: 50, scale: 0.95 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%", // When the top of the card enters 85% of the viewport
+                        toggleActions: "play none none reverse",
+                    }
+                }
+            );
+        });
+
+        });
+         const safetyWellnessSection = document.querySelector('.safety-wellness-section');
+                const safetyItem = safetyWellnessSection.querySelector('.safety-item');
+                const wellnessItem = safetyWellnessSection.querySelector('.wellness-item');
+
+                // Only apply complex animation on larger screens
+                if (safetyItem && wellnessItem && window.innerWidth >= 768) {
+                    // Initial state for GSAP animation (overrides CSS for animation start)
+                    gsap.set(safetyItem, { opacity: 0, y: 100, x: -100, scale: 0.9, zIndex: 2 });
+                    gsap.set(wellnessItem, { opacity: 0, y: 150, x: 100, scale: 0.9, zIndex: 3 });
+
+                    const stackingTimeline = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: safetyWellnessSection,
+                            start: "top center", // Start animation when the top of the section hits the center of the viewport
+                            end: "bottom center", // End when the bottom of the section hits the center of the viewport
+                            scrub: 1, // Smoothly link animation to scroll
+                            pin: true, // Pin the section while the animation plays
+                            pinSpacing: false, // Prevent ScrollTrigger from adding extra padding
+                        }
+                    });
+
+                    stackingTimeline
+                        // Phase 1: Reveal both items from their initial positions
+                        .to(safetyItem, { opacity: 1, y: 0, x: -50, scale: 1, duration: 0.8, ease: "power2.out" }, "start")
+                        .to(wellnessItem, { opacity: 1, y: 0, x: 50, scale: 1, duration: 0.8, ease: "power2.out" }, "start")
+                        // Phase 2: Stack the Wellness item on top of Safety
+                        .to(wellnessItem, { x: 0, y: -50, zIndex: 4, duration: 0.8, ease: "power2.inOut" }, "stack")
+                        .to(safetyItem, { x: 0, y: 50, zIndex: 1, duration: 0.8, ease: "power2.inOut" }, "stack");
+
+                } else if (window.innerWidth < 768) {
+                    // Ensure elements are visible and stacked normally on smaller screens
+                    // CSS handles relative positioning and visibility, but explicitly set opacity for safety
+                    gsap.set([safetyItem, wellnessItem], { opacity: 1, y: 0, x: 0, scale: 1, position: 'relative', zIndex: 'auto' });
+                }
+    </script>
+</body>
+</html>
+

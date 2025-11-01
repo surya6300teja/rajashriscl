@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Rajarshi International School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #FBF9EA; 
+            color: #000000; 
+            overscroll-behavior: none;
+        }
+        /* Custom class to prevent scrolling when mobile menu is open */
+        .overflow-hidden-mobile {
+            overflow: hidden;
+        }
+        .container {
+            max-width: 1400px;
+        }
+        .job-card {
+            transition: all 0.3s cubic-bezier(.4,0,.2,1);
+            border-left: 5px solid transparent;
+        }
+        .job-card:hover {
+            box-shadow: 0 10px 20px rgba(16, 38, 59, 0.1);
+            transform: translateY(-4px);
+            border-left-color: #9D1D33;
+        }
+        /* Style for the mobile menu overlay */
+        #menu-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="main-wrapper" class="relative w-full">
+
+        <header class="w-full z-50 py-4 px-4 sm:px-8 bg-[#FBF9EA]">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="flex-shrink-0">
+                    <img src="./Logo H.png" alt="Rajarshi School Logo" class="w-48 sm:w-64 h-auto">
+                </a>
+                
+                <div class="md:hidden">
+                    <button id="menu-btn" class="text-black focus:outline-none z-50 relative w-8 h-8">
+                        <svg id="menu-open-icon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        <svg id="menu-close-icon" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-1 p-2 rounded-full shadow-md bg-white">
+                    <a href="index.html" class="text-black hover:text-gray-500 px-4 py-2">Home</a>
+                    <a href="about.html" class="text-black hover:text-gray-500 px-4 py-2">About</a>
+                    <a href="campus.html" class="text-black hover:text-gray-500 px-4 py-2">Campus</a>
+                    <a href="academics.html" class="text-black hover:text-gray-500 px-4 py-2">Academics</a>
+                    <a href="contact.html" class="text-black hover:text-gray-500 px-4 py-2">Contact</a>
+                    <a href="careers.html" class="text-black font-bold px-4 py-2">Careers</a>
+                    <a href="gallery.html" class="text-black hover:text-gray-500 px-4 py-2">Gallery</a>
+                    <a href="admissions.html" class="text-black hover:text-gray-500 px-4 py-2">Admissions</a>
+                    <!-- <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full ml-2">Pay Fee</a> -->
+                </nav>
+            </div>
+        </header>
+        
+        <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden"></div>
+        <nav id="mobile-menu" class="hidden fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white z-40 shadow-lg p-8 transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col space-y-6 text-xl text-center mt-16">
+                <a href="index.html" class="text-black-700 hover:text-gray-500 py-2">Home</a>
+                <a href="about.html" class="text-black-700 hover:text-gray-500 py-2">About</a>
+                <a href="campus.html" class="text-black-700 hover:text-gray-500 py-2">Campus</a>
+                <a href="academics.html" class="text-black-700 hover:text-gray-500 py-2">Academics</a>
+                <a href="contact.html" class="text-black-700 hover:text-gray-500 py-2">Contact</a>
+                <a href="careers.html" class="text-black-700 font-bold py-2">Careers</a>
+                <a href="gallery.html" class="text-black-700 hover:text-gray-500 py-2">Gallery</a>
+                <a href="admissions.html" class="text-black-700 font-bold py-2">Admissions</a>
+                    <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
+            </div>
+        </nav>
+        <div class="fixed bottom-6 right-6 flex flex-col items-end space-y-3 z-50">
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/917995111999" target="_blank"
+     class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-1 flex items-center justify-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+      <path d="M12.04 2C6.51 2 2 6.5 2 12.06c0 2.06.54 4.05 1.57 5.83L2 22l4.28-1.49A10.1 10.1 0 0 0 12.04 22c5.52 0 10.04-4.5 10.04-10.06C22.08 6.5 17.56 2 12.04 2zm0 18.26c-1.64 0-3.23-.43-4.63-1.26l-.33-.2-2.54.89.87-2.48-.22-.34A8.09 8.09 0 0 1 4 12.06C4 7.64 7.62 4 12.04 4c4.42 0 8.04 3.64 8.04 8.06 0 4.43-3.62 8.2-8.04 8.2z"/>
+      <path d="M16.68 14.9c-.27-.14-1.63-.8-1.88-.9-.25-.09-.43-.14-.6.14-.17.27-.69.9-.84 1.08-.15.17-.31.2-.58.07-.27-.13-1.14-.42-2.16-1.34-.8-.7-1.33-1.56-1.48-1.82-.15-.27-.02-.42.11-.56.12-.12.27-.31.41-.47.14-.16.19-.27.28-.46.09-.18.05-.35-.02-.49-.07-.14-.6-1.46-.82-2-.22-.53-.44-.46-.6-.46-.15 0-.33-.02-.5-.02s-.46.07-.7.35c-.25.27-.92.9-.92 2.19 0 1.3.95 2.56 1.09 2.74.13.18 1.87 2.85 4.55 3.99.64.27 1.13.43 1.52.55.64.2 1.23.17 1.7.1.52-.08 1.63-.67 1.86-1.32.23-.65.23-1.2.16-1.32-.07-.12-.24-.19-.5-.32z"/>
+    </svg>
+  </a>
+
+  <!-- Enquire Now Button -->
+  <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" 
+   target="_blank"
+   class="bg-yellow-500 hover:bg-yellow-600 text-white font-medium px-5 py-3 rounded-full shadow-lg transition-transform transform hover:-translate-y-1">
+   Enquire Now
+</a>
+
+</div>
+        <main>
+            <section class="py-16 sm:py-24 px-4 sm:px-8 bg-[#FBF9EA] text-center">
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg sm:text-xl uppercase tracking-widest text-[#9D1D33] mb-4 reveal-up">Join Our Team</p>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-[#10263B] leading-tight reveal-up">
+                        Shape the Next Generation of Leaders.
+                    </h1>
+                    <p class="mt-6 text-base sm:text-lg text-gray-700 max-w-3xl mx-auto reveal-up">
+                        At Rajarshi, you’re not just teaching lessons; you're <strong>building a legacy</strong>. Join a forward-thinking faculty committed to holistic growth, rooted in ancient wisdom and driven by modern pedagogy.
+                    </p>
+                </div>
+            </section>
+            
+            <section class="py-16 sm:py-24 px-4 sm:px-8 bg-[#FBF9EA]">
+                <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16">
+                    
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-[#9D1D33] mb-8 reveal-up">Current Opportunities</h2>
+                        
+                        <div class="relative mb-8 reveal-up">
+                            <input type="text" id="job-search" placeholder="Search by role (e.g., 'Math' or 'Primary')" 
+                                class="w-full p-4 pl-12 border-2 border-gray-300 rounded-full focus:ring-2 focus:ring-[#FFD166] focus:border-[#FFD166] transition">
+                            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+
+                        <div id="job-listings" class="space-y-4">
+                            <div class="job-card bg-white p-6 rounded-lg shadow-md reveal-up" data-role="Primary Teacher PRT Grade 1-5 Subjects">
+                                <h3 class="text-xl font-bold text-[#10263B]">Primary Teacher (PRT)</h3>
+                                <p class="text-gray-600 mb-3">Grades 1–5, All Subjects | Full-Time</p>
+                                <p class="text-sm text-gray-500">Eligibility: Graduation/Post Graduation & B.Ed. Min. 1 year experience.</p>
+                                <button class="apply-now-btn mt-4 text-sm font-bold text-[#9D1D33] hover:underline">Apply Now <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                            <div class="job-card bg-white p-6 rounded-lg shadow-md reveal-up" data-role="Trained Graduate Teacher TGT Math">
+                                <h3 class="text-xl font-bold text-[#10263B]">Trained Graduate Teacher (TGT) - Math</h3>
+                                <p class="text-gray-600 mb-3">Grades 6–8 | Full-Time</p>
+                                <p class="text-sm text-gray-500">Eligibility: Post Graduation (Math) & B.Ed. Min. 2 years experience.</p>
+                                <button class="apply-now-btn mt-4 text-sm font-bold text-[#9D1D33] hover:underline">Apply Now <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                            <div class="job-card bg-white p-6 rounded-lg shadow-md reveal-up" data-role="Pre-Primary Teacher Nursery PP2">
+                                <h3 class="text-xl font-bold text-[#10263B]">Pre-Primary Teacher</h3>
+                                <p class="text-gray-600 mb-3">Nursery to PP2 | Full-Time</p>
+                                <p class="text-sm text-gray-500">Eligibility: Graduation with PPTC/ECCE Certification.</p>
+                                <button class="apply-now-btn mt-4 text-sm font-bold text-[#9D1D33] hover:underline">Apply Now <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                            <p class="mt-8 text-lg text-gray-600 reveal-up">
+                                Don't see your role? We are always looking for passionate educators.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div id="application-form-area" class="mt-12 lg:mt-0">
+                        <h2 class="text-3xl sm:text-4xl font-bold text-[#10263B] mb-8 reveal-up">Quick Application</h2>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl reveal-up sticky top-8">
+                            
+                            <!-- <form id="careerForm" class="space-y-4">
+                                <input type="hidden" name="_subject" value="New Career Application from Rajarshi Website">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="hidden" name="_next" value="https://your-website.com/thank-you.html"> <input type="hidden" name="_captcha" value="false">
+
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                    <input type="text" id="name" name="Name" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-[#9D1D33] focus:border-[#9D1D33]">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                    <input type="email" id="email" name="Email" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-[#9D1D33] focus:border-[#9D1D33]">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                    <input type="tel" id="phone" name="Phone" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-[#9D1D33] focus:border-[#9D1D33]">
+                                </div>
+                                <div>
+                                    <label for="position" class="block text-sm font-medium text-gray-700">Desired Position</label>
+                                    <select id="position" name="Position" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-[#9D1D33] focus:border-[#9D1D33] bg-white">
+                                        <option value="" disabled selected>Select Position</option>
+                                        <option value="Pre Primary Teacher">Pre Primary Teacher</option>
+                                        <option value="Primary Teacher">Primary Teacher</option>
+                                        <option value="High School Teacher">High School Teacher</option>
+                                        <option value="Academic Coordinator">Academic Coordinator</option>
+                                        <option value="Parent Relations Executive">Parent Relations Executive</option>
+                                        <option value="Admission Officer">Admission Officer</option>
+                                        <option value="PET">PET</option>
+                                        <option value="Bus Driver">Bus Driver</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="experience" class="block text-sm font-medium text-gray-700">Years of Experience</label>
+                                    <input type="number" id="experience" name="Experience" min="0" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg focus:ring-[#9D1D33] focus:border-[#9D1D33]">
+                                </div>
+                                <div>
+                                    <label for="cv_file" class="block text-sm font-medium text-gray-700 mb-1">Upload CV/Resume</label>
+                                    <input type="file" id="cv_file" name="attachment" accept=".pdf, .doc, .docx" required class="w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#FFD166] file:text-black hover:file:bg-yellow-400 cursor-pointer">
+                                </div>
+                                 <input type="hidden" name="_next" value="https://rajashri.netlify.app/careers.html">
+    <input type="hidden" name="_captcha" value="false">
+
+                                <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">Submit Application</button>
+                            </form> -->
+                            <!-- <form id="careerForm" enctype="multipart/form-data" class="space-y-4">
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+    <input type="text" id="name" name="Name" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+    <input type="email" id="email" name="Email" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+    <input type="tel" id="phone" name="Phone" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="position" class="block text-sm font-medium text-gray-700">Desired Position</label>
+    <select id="position" name="Position" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+      <option value="" disabled selected>Select Position</option>
+      <option value="Pre Primary Teacher">Pre Primary Teacher</option>
+      <option value="Primary Teacher">Primary Teacher</option>
+      <option value="High School Teacher">High School Teacher</option>
+      <option value="Academic Coordinator">Academic Coordinator</option>
+      <option value="Parent Relations Executive">Parent Relations Executive</option>
+      <option value="Admission Officer">Admission Officer</option>
+      <option value="PET">PET</option>
+      <option value="Bus Driver">Bus Driver</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div>
+    <label for="experience" class="block text-sm font-medium text-gray-700">Years of Experience</label>
+    <input type="number" id="experience" name="Experience" min="0" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="cv_file" class="block text-sm font-medium text-gray-700 mb-1">Upload CV/Resume</label>
+    <input type="file" id="cv_file" name="attachment" accept=".pdf, .doc, .docx" required
+      class="w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#FFD166] file:text-black hover:file:bg-yellow-400 cursor-pointer">
+  </div>
+  <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">
+    Submit Application
+  </button>
+</form> -->
+
+<!-- <form action="https://script.google.com/macros/s/AKfycbwFiHO3DpI2j1s3vYpfU93sxjgYx9aNZB0Tpmpa3jFT6zuQcjb-tKV-dy5ExM-Mztg/exec" 
+      method="POST" 
+      enctype="multipart/form-data" 
+      target="hidden_iframe" 
+      onsubmit="showSuccessMessage()">
+
+  <input type="text" name="Name" placeholder="Full Name" required>
+  <input type="email" name="Email" placeholder="Email" required>
+  <input type="tel" name="Phone" placeholder="Phone" required>
+  <input type="text" name="Position" placeholder="Position" required>
+  <input type="text" name="Experience" placeholder="Experience">
+  <input type="file" name="attachment" accept=".pdf,.doc,.docx" required>
+  <button type="submit">Submit</button>
+</form> -->
+
+<!-- Hidden iframe to prevent page reload -->
+<!-- <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe> -->
+<div id="success-message" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center">
+  Your application has been submitted successfully!
+</div>
+<form 
+  action="https://script.google.com/macros/s/AKfycbyKemL9RDQgCJGVLHwi9CaUbFQAcKtc3LpfqW4WOXlPNejX7mNiIRl9aLBkV-H2HO3D/exec"
+  method="POST"
+  enctype="multipart/form-data"
+  target="hidden_iframe"
+  onsubmit="submitted=true; showSuccessMessage();">
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+    <input type="text" id="name" name="Name" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+    <input type="email" id="email" name="Email" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+    <input type="tel" id="phone" name="Phone" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <div>
+    <label for="position" class="block text-sm font-medium text-gray-700">Desired Position</label>
+    <select id="position" name="Position" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+      <option value="" disabled selected>Select Position</option>
+      <option value="Pre Primary Teacher">Pre Primary Teacher</option>
+      <option value="Primary Teacher">Primary Teacher</option>
+      <option value="High School Teacher">High School Teacher</option>
+      <option value="Academic Coordinator">Academic Coordinator</option>
+      <option value="Parent Relations Executive">Parent Relations Executive</option>
+      <option value="Admission Officer">Admission Officer</option>
+      <option value="PET">PET</option>
+      <option value="Bus Driver">Bus Driver</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div>
+    <label for="experience" class="block text-sm font-medium text-gray-700">Years of Experience</label>
+    <input type="number" id="experience" name="Experience" min="0" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
+  <!-- <div>
+    <label for="cv_file" class="block text-sm font-medium text-gray-700 mb-1">Upload CV/Resume</label>
+    <input type="file" id="cv_file" name="attachment" accept=".pdf, .doc, .docx" required
+      class="w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-[#FFD166] file:text-black hover:file:bg-yellow-400 cursor-pointer">
+  </div> -->
+  <button type="submit" class="w-full bg-[#9D1D33] text-white font-bold py-3 rounded-full hover:bg-opacity-90 transition-colors">
+    Submit Application
+  </button>
+
+ 
+</form>
+ 
+
+<!-- Hidden iframe -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="iframeLoaded()"></iframe>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    
+        <footer class="bg-[#111111] text-white py-16 px-4 sm:px-8">
+            <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center sm:text-left">
+                <div class="sm:col-span-2 lg:col-span-2">
+                    <h4 class="text-2xl font-bold mb-4">Rajarshi</h4>
+                    <p class="text-gray-400">Where ancient wisdom meets tomorrow’s leaders.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="academics.html" class="text-gray-400 hover:text-white">Academics</a></li>
+                        <li><a href="campus.html" class="text-gray-400 hover:text-white">Campus</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="admissions.html" class="text-gray-400 hover:text-white">Admissions</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="careers.html" class="text-gray-400 hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="text-center sm:text-right">
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex justify-center sm:justify-end space-x-4">
+                        <a href="#" aria-label="Facebook" class="text-2xl hover:text-yellow-400 transition">ⓕ</a>
+                        <a href="#" aria-label="Instagram" class="text-2xl hover:text-yellow-400 transition">ⓘ</a>
+                        <a href="#" aria-label="LinkedIn" class="text-2xl hover:text-yellow-400 transition">ⓛ</a>
+                        <a href="#" aria-label="X" class="text-2xl hover:text-yellow-400 transition">ⓧ</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container mx-auto mt-12 text-center border-t border-gray-800 pt-8">
+                <p class="text-gray-500">&copy; 2025 Rajarshi International School. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Responsive Mobile Navigation ---
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const openIcon = document.getElementById('menu-open-icon');
+            const closeIcon = document.getElementById('menu-close-icon');
+
+            function toggleMenu() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                
+                document.body.classList.toggle('overflow-hidden-mobile', isHidden);
+                openIcon.classList.toggle('hidden', isHidden);
+                closeIcon.classList.toggle('hidden', !isHidden);
+
+                if (isHidden) {
+                    menuOverlay.classList.remove('hidden');
+                    mobileMenu.classList.remove('hidden');
+                    setTimeout(() => {
+                        menuOverlay.style.opacity = '1';
+                        mobileMenu.classList.remove('translate-x-full');
+                    }, 10);
+                } else {
+                    menuOverlay.style.opacity = '0';
+                    mobileMenu.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        menuOverlay.classList.add('hidden');
+                        mobileMenu.classList.add('hidden');
+                    }, 300);
+                }
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
+            // --- Job Search Filter ---
+            const searchInput = document.getElementById('job-search');
+            if (searchInput) {
+                searchInput.addEventListener('keyup', () => {
+                    const filter = searchInput.value.toLowerCase();
+                    const jobContainer = document.getElementById('job-listings');
+                    const jobs = jobContainer.getElementsByClassName('job-card');
+
+                    for (let i = 0; i < jobs.length; i++) {
+                        const jobCard = jobs[i];
+                        const roleText = jobCard.getAttribute('data-role').toLowerCase();
+                        jobCard.style.display = roleText.includes(filter) ? "" : "none";
+                    }
+                });
+            }
+
+            // --- Auto-fill and Scroll to Application Form ---
+            document.querySelectorAll('.apply-now-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const jobCard = e.target.closest('.job-card');
+                    const role = jobCard.querySelector('h3').textContent.trim();
+                    const positionDropdown = document.getElementById('position');
+                    
+                    let matched = false;
+                    for (let option of positionDropdown.options) {
+                        if (option.value !== "" && role.toLowerCase().includes(option.value.toLowerCase())) {
+                            option.selected = true;
+                            matched = true;
+                            break;
+                        }
+                    }
+                    if (!matched) {
+                        positionDropdown.value = "Other"; // Default to 'Other' if no direct match
+                    }
+                    
+                    document.getElementById('application-form-area').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // --- GSAP Reveal-on-Scroll Animation ---
+            gsap.registerPlugin(ScrollTrigger);
+            const revealElements = gsap.utils.toArray('.reveal-up');
+            revealElements.forEach(elem => {
+                gsap.fromTo(elem, 
+                    { y: 50, autoAlpha: 0 }, 
+                    {
+                        y: 0,
+                        autoAlpha: 1,
+                        duration: 1,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: 'top 90%', // Start animation when element is 90% from the top
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+        });
+        
+
+let submitted = false;
+
+function showSuccessMessage() {
+    const messageDiv = document.getElementById('success-message');
+    messageDiv.classList.remove('hidden'); // Show message
+
+    // Scroll to the message
+    messageDiv.scrollIntoView({ behavior: 'smooth' });
+
+    // Hide the message after 5 seconds
+    setTimeout(() => {
+        messageDiv.classList.add('hidden');
+    }, 5000);
+}
+
+function iframeLoaded() {
+    if (submitted) {
+        // Reset form only after submission completes
+        const form = document.querySelector('form');
+        if (form) form.reset();
+        submitted = false;
+    }
+}
+
+</script>
+</body>
+</html>
+
