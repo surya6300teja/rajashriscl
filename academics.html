@@ -96,6 +96,23 @@
            
         }
         }
+        .nav-link-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 209, 102, 0.3);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .nav-link-circle:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -163,32 +180,38 @@
                              md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
                     <div class="flex flex-col items-center space-y-4 
                                 md:flex-row md:space-y-0 md:space-x-1"> 
-                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
-                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
-                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Campus
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
-                                alt="Campus doodle"
-                                class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
+                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Home</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Home doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                         </a>
-                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
-                        <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Contact
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec8e16f271366244f120e2_doodle-2.svg"
-                                alt="Contact doodle"
-                                class="absolute top-[18px] inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
+                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">About</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="About doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                         </a>
-                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
-                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
-                        <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Campus</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Academics</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Academics doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="admissions.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Admissions</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Admissions doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                          <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Contact</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Careers</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Careers doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Gallery</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Gallery doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
                     <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
                     </div>
                 </nav>
@@ -208,6 +231,25 @@
                 </p>
                 <div class="mt-12 hero-item">
                     <i class="fas fa-chevron-down text-4xl text-yellow-500 animate-bounce"></i>
+                </div>
+            </section>
+            <!-- Image Scroll Section -->
+            <section id="image-scroll-container" class="h-[250vh] relative hidden md:block -mt-48">
+                <div class="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+                    
+                    <div class="relative w-full max-w-6xl" style="aspect-ratio: 3/1;">
+
+                        <div id="scroll-img-1" class="absolute w-2/5 h-full top-0 left-1/3">
+                            <img src="./Images/About/about1.png" class="w-full h-full object-cover shadow-xl" alt="Students smiling">
+                        </div>
+                        <div id="scroll-img-2" class="absolute w-2/5 h-full top-0 left-1/3">
+                            <img src="./Images/Website/DSC00890.JPG" class="w-full h-full object-cover shadow-xl" alt="Student with glasses">
+                        </div>
+                        <div id="scroll-img-3" class="absolute w-2/5 h-full top-0 left-1/3">
+                            <img src="./Images/About/about3.png" class="w-full h-full object-cover shadow-xl" alt="Teacher with students">
+                        </div>
+                    </div>
+
                 </div>
             </section>
             
@@ -284,85 +326,85 @@
                 </div> -->
             <!-- </section>  --> 
              <section class="horizontal-scroll-section">
-  <div class="panels-container">
+                <div class="panels-container">
 
-    <!-- Panel 1: Shastra+STEAM (Dark background – keep light text) -->
-    <div class="panel bg-gradient-to-r from-[#E85040] to-[#F77E6E] text-[#0B1F1C]">
-      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold">SCIENCE</h1>
-      <div class="panel-content text-center">
-        <i class="fas fa-atom text-5xl text-yellow-400 mb-4"></i>
-        <h2 class="text-4xl font-bold mb-4">Shastra+STEAM</h2>
-        <p class="text-lg text-[#0B1F1C]/90 mb-4">Hands-on innovation, fueled by India’s ageless wisdom.</p>
-        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
-          <li>Weekly Shastra Circles (Puranic tales)</li>
-          <li>Hands-on STEAM Labs building filters & bridges</li>
-          <li>Project Nirman Fair each term</li>
-        </ul>
-      </div>
-    </div>
+                    <!-- Panel 1: Shastra+STEAM (Dark background – keep light text) -->
+                    <div class="panel bg-gradient-to-r from-[#E85040] to-[#F77E6E] text-[#0B1F1C]">
+                    <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold">SCIENCE</h1>
+                    <div class="panel-content text-center">
+                        <i class="fas fa-atom text-5xl text-yellow-400 mb-4"></i>
+                        <h2 class="text-4xl font-bold mb-4">Shastra+STEAM</h2>
+                        <p class="text-lg text-[#0B1F1C]/90 mb-4">Hands-on innovation, fueled by India’s ageless wisdom.</p>
+                        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+                        <li>Weekly Shastra Circles (Puranic tales)</li>
+                        <li>Hands-on STEAM Labs building filters & bridges</li>
+                        <li>Project Nirman Fair each term</li>
+                        </ul>
+                    </div>
+                    </div>
 
-    <!-- Panel 2: Samskara360 (Light background – dark text) -->
-    <div class="panel bg-gradient-to-r from-[#9FDACC] to-[#67BDA9] text-[#0B1F1C]">
-      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">VALUES</h1>
-      <div class="panel-content text-center">
-        <i class="fas fa-heart text-5xl text-red-500 mb-4"></i>
-        <h2 class="text-4xl font-bold mb-4">Samskara360</h2>
-        <p class="text-lg text-[#0B1F1C]/90 mb-4">Character built with daily reflections and epic storytelling.</p>
-        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
-          <li>Daily Gratitude Circles & Mindful Moments</li>
-          <li>Weekly Epic Echoes (Ramayana/Mahabharata)</li>
-          <li>Bi-weekly Value Journaling</li>
-        </ul>
-      </div>
-    </div>
+                    <!-- Panel 2: Samskara360 (Light background – dark text) -->
+                    <div class="panel bg-gradient-to-r from-[#9FDACC] to-[#67BDA9] text-[#0B1F1C]">
+                    <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">VALUES</h1>
+                    <div class="panel-content text-center">
+                        <i class="fas fa-heart text-5xl text-red-500 mb-4"></i>
+                        <h2 class="text-4xl font-bold mb-4">Samskara360</h2>
+                        <p class="text-lg text-[#0B1F1C]/90 mb-4">Character built with daily reflections and epic storytelling.</p>
+                        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+                        <li>Daily Gratitude Circles & Mindful Moments</li>
+                        <li>Weekly Epic Echoes (Ramayana/Mahabharata)</li>
+                        <li>Bi-weekly Value Journaling</li>
+                        </ul>
+                    </div>
+                    </div>
 
-    <!-- Panel 3: Gurukul Grid (Light yellow – dark text) -->
-    <div class="panel bg-gradient-to-r from-[#FFD166] to-[#FCA311] text-[#0B1F1C]">
-      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">MENTORSHIP</h1>
-      <div class="panel-content text-center">
-        <i class="fas fa-users text-5xl text-green-700 mb-4"></i>
-        <h2 class="text-4xl font-bold mb-4">Gurukul Grid</h2>
-        <p class="text-lg text-[#0B1F1C]/90 mb-4">Mentorship reimagined—small circles, big impact.</p>
-        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
-          <li>Mentor Circles with a 1:10 teacher-student ratio</li>
-          <li>Morning chants and “Paath” presentations</li>
-          <li>Mixed-age Learning Pods for collaboration</li>
-        </ul>
-      </div>
-    </div>
+                    <!-- Panel 3: Gurukul Grid (Light yellow – dark text) -->
+                    <div class="panel bg-gradient-to-r from-[#FFD166] to-[#FCA311] text-[#0B1F1C]">
+                    <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">MENTORSHIP</h1>
+                    <div class="panel-content text-center">
+                        <i class="fas fa-users text-5xl text-green-700 mb-4"></i>
+                        <h2 class="text-4xl font-bold mb-4">Gurukul Grid</h2>
+                        <p class="text-lg text-[#0B1F1C]/90 mb-4">Mentorship reimagined—small circles, big impact.</p>
+                        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+                        <li>Mentor Circles with a 1:10 teacher-student ratio</li>
+                        <li>Morning chants and “Paath” presentations</li>
+                        <li>Mixed-age Learning Pods for collaboration</li>
+                        </ul>
+                    </div>
+                    </div>
 
-    <!-- Panel 4: Digital-First Mindset (Dark red – keep light text) -->
-    <div class="panel bg-gradient-to-r from-[#E85040] to-[#F77E6E] text-[#0B1F1C]">
-      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold">TECHNOLOGY</h1>
-      <div class="panel-content text-center">
-        <i class="fas fa-laptop-code text-5xl text-yellow-300 mb-4"></i>
-        <h2 class="text-4xl font-bold mb-4">Digital-First Mindset</h2>
-        <p class="text-lg text-[#0B1F1C]/90 mb-4">VR journeys, live parent-teacher chat, real-time progress.</p>
-        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
-          <li>School-wide LMS & Parent App</li>
-          <li>Interactive AV Studio & VR Kits</li>
-          <li>Digital Badges for micro-credentials</li>
-        </ul>
-      </div>
-    </div>
+                    <!-- Panel 4: Digital-First Mindset (Dark red – keep light text) -->
+                    <div class="panel bg-gradient-to-r from-[#E85040] to-[#F77E6E] text-[#0B1F1C]">
+                    <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold">TECHNOLOGY</h1>
+                    <div class="panel-content text-center">
+                        <i class="fas fa-laptop-code text-5xl text-yellow-300 mb-4"></i>
+                        <h2 class="text-4xl font-bold mb-4">Digital-First Mindset</h2>
+                        <p class="text-lg text-[#0B1F1C]/90 mb-4">VR journeys, live parent-teacher chat, real-time progress.</p>
+                        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+                        <li>School-wide LMS & Parent App</li>
+                        <li>Interactive AV Studio & VR Kits</li>
+                        <li>Digital Badges for micro-credentials</li>
+                        </ul>
+                    </div>
+                    </div>
 
-    <!-- Panel 5: World-Ready, Root-Deep (Very light background – dark text) -->
-    <div class="panel bg-gradient-to-r from-[#DCE9E4] to-[#B7D8C7] text-[#0B1F1C]">
-      <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">GLOBAL</h1>
-      <div class="panel-content text-center">
-        <i class="fas fa-globe-asia text-5xl text-yellow-600 mb-4"></i>
-        <h2 class="text-4xl font-bold mb-4">World-Ready, Root-Deep</h2>
-        <p class="text-lg text-[#0B1F1C]/90 mb-4">Speak Sanskrit at sunrise; code Python by sundown.</p>
-        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
-          <li>Trilingual fluency (English, Hindi, Telugu)</li>
-          <li>Virtual pen-pals & international webinars</li>
-          <li>Ethics Lab with real-world case studies</li>
-        </ul>
-      </div>
-    </div>
+                    <!-- Panel 5: World-Ready, Root-Deep (Very light background – dark text) -->
+                    <div class="panel bg-gradient-to-r from-[#DCE9E4] to-[#B7D8C7] text-[#0B1F1C]">
+                    <h1 class="text-6xl md:text-8xl absolute m-8 md:m-20 top-0 left-0 font-bold text-[#0B1F1C]">GLOBAL</h1>
+                    <div class="panel-content text-center">
+                        <i class="fas fa-globe-asia text-5xl text-yellow-600 mb-4"></i>
+                        <h2 class="text-4xl font-bold mb-4">World-Ready, Root-Deep</h2>
+                        <p class="text-lg text-[#0B1F1C]/90 mb-4">Speak Sanskrit at sunrise; code Python by sundown.</p>
+                        <ul class="text-left list-disc list-inside space-y-2 text-[#0B1F1C]/80">
+                        <li>Trilingual fluency (English, Hindi, Telugu)</li>
+                        <li>Virtual pen-pals & international webinars</li>
+                        <li>Ethics Lab with real-world case studies</li>
+                        </ul>
+                    </div>
+                    </div>
 
-  </div>
-</section>
+                </div>
+                </section>
             
             <!-- Closing Section -->
             <section class="h-screen flex flex-col justify-center items-center text-center px-4 sm:px-8 bg-[#FBF9EA]">
@@ -434,6 +476,71 @@
                 ease: "power3.out",
                 delay: 0.2
             });
+            
+            // --- Image Stack Scroll Animation ---
+            if (window.innerWidth >= 768) { // Only run on md screens and up
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: "#image-scroll-container",
+                        start: "top center", // Start animation a bit earlier
+                        end: "bottom bottom",
+                        scrub: 1, // Smoothly links animation to scroll
+                    }
+                });
+
+                // Set the initial state of the images: stacked and centered.
+                gsap.set("#scroll-img-1", { xPercent: -10, yPercent: 0, rotation: -10, scale: 0.9 });
+                gsap.set("#scroll-img-2", { xPercent: 0, yPercent: 0, rotation: 0, scale: 1 });
+                gsap.set("#scroll-img-3", { xPercent: 10, yPercent: 0, rotation: 10, scale: 0.9 });
+
+                // Animate to the final state: spread apart AND moved down.
+                tl.to("#scroll-img-1", { xPercent: -110, yPercent: 40, rotation: 0, scale: 1 })
+                  .to("#scroll-img-2", { xPercent: 0, yPercent: 40, rotation: 0, scale: 1 }, "<")
+                  .to("#scroll-img-3", { xPercent: 110, yPercent: 40, rotation: 0, scale: 1 }, "<");
+            }
+
+
+            // --- Mobile Menu --- (if you implement a mobile menu toggle)
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            // --- Tilting Animations for Corner Images ---
+            if (window.innerWidth >= 1024) { // Only run on desktop
+                // Mission Image Animation (tilts left/right)
+                gsap.fromTo("#mission-image-container",
+                    { rotation: -5 },
+                    {
+                        rotation: 5,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: "#mission-image-container",
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 1,
+                        }
+                    }
+                );
+
+                // Values Image Animation (tilts left/right)
+                gsap.fromTo("#values-image-container",
+                    { rotation: 5 },
+                    {
+                        rotation: -5,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: "#values-image-container",
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: 1,
+                        }
+                    }
+                );
+                
+            }
 
             // --- Horizontal Scroll Animation ---
             const panels = gsap.utils.toArray(".panel");

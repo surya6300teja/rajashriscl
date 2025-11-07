@@ -36,6 +36,23 @@
         .colorchnge{
         filter: invert(15%) sepia(90%) saturate(1000%) hue-rotate(-40deg) brightness(70%);
         }
+        .nav-link-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 209, 102, 0.3);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .nav-link-circle:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
     </style>
 
     <script>
@@ -172,28 +189,38 @@
                              md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
                 <div class="flex flex-col items-center space-y-4 
                             md:flex-row md:space-y-0 md:space-x-1"> 
-                    <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
-                    <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
-                    <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                        <div class="navbar_text">
-                            Campus
-                        </div>
-                        <img
-                            src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
-                            alt="Campus doodle"
-                            class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                        />
+                    <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Home</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Home doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                     </a>
-                    <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
-                    <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                        <div class="navbar_text">
-                            Contact
-                        </div>
-                        
+                    <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">About</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="About doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                     </a>
-                    <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
-                    <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
-                    <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                    <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Campus</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Academics</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Academics doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="admissions.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Admissions</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Admissions doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                      <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Contact</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Careers</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Careers doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Gallery</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Gallery doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
                     <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
                 </div>
             </nav>
@@ -213,7 +240,7 @@
                             <i class="fas fa-map-marker-alt fa-lg w-6"></i>
                             <a href="https://maps.app.goo.gl/6Tfrb663WtfMvR5i6" ><h3 class="font-bold text-lg ml-3">Our Location</h3></a>
                         </div>
-                        <p class="text-gray-700 text-sm">2-19, Wadakpally Village, Near Kistareddypet ORR, Ameenpur Mandal, Sangareddy District, Telangana - 502319.</p>
+                        <p class="text-gray-700 text-sm">2-19, Wadakpally Village,<br>Near Kistareddypet ORR, Ameenpur Mandal,<br>Sangareddy District, Telangana - 502319.</p>
                     </div>
                     <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition-shadow">
                         <div class="flex items-center text-brand-green mb-3">
@@ -266,7 +293,7 @@
         </main>
     </div>
       
-    <footer class="bg-[#111111] text-white py-20 px-8">
+    <footer class="bg-[#111111] text-white py-7 px-8">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 text-center md:text-left">
             <div class="md:col-span-2">
                 <h4 class="text-2xl font-bold mb-4">Rajarshi✦</h4>
@@ -291,14 +318,13 @@
             <div class="md:col-span-2 text-center md:text-right">
                 <h4 class="font-bold mb-4">Connect With Us</h4>
                 <div class="flex justify-center md:justify-end space-x-4 mb-4">
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓕ</a>
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓘ</a>
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓛ</a>
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓧ</a>
+                    <a href="#" class="text-2xl hover:text-blue-400 transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-2xl hover:text-pink-400 transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-blue-500 transition" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
-        <div class="container mx-auto mt-16 text-center border-t border-gray-800 pt-8">
+        <div class="container mx-auto mt-6 text-center border-t border-gray-800 pt-4">
             <p class="text-gray-500">© 2025 Rajarshi International School. All Rights Reserved. </p>
         </div>
     </footer>

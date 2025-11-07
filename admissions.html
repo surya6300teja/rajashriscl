@@ -51,7 +51,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background-color: #FFD166; /* Yellow accent color */
+            background-color: #FCD34D; /* Light yellow accent color */
             border-radius: 2px;
             transform: scaleY(0);
             transform-origin: top;
@@ -74,7 +74,7 @@
             top: 0;
             width: 2.5rem;
             height: 2.5rem;
-            background-color: #1A4742; /* Dark green */
+            background-color: #DC2626; /* Red */
             color: #FFD166; /* Yellow icon */
             border-radius: 50%;
             display: flex;
@@ -95,6 +95,23 @@
         }
         .animate-float-graphic {
             animation: float-graphic 8s ease-in-out infinite;
+        }
+        .nav-link-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 209, 102, 0.3);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .nav-link-circle:hover::before {
+            transform: translate(-50%, -50%) scale(1);
         }
     </style>
 </head>
@@ -164,32 +181,38 @@
                              md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
                     <div class="flex flex-col items-center space-y-4 
                                 md:flex-row md:space-y-0 md:space-x-1"> 
-                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
-                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
-                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Campus
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
-                                alt="Campus doodle"
-                                class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
+                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Home</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Home doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                         </a>
-                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
-                        <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Contact
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec8e16f271366244f120e2_doodle-2.svg"
-                                alt="Contact doodle"
-                                class="absolute top-[18px] inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
+                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">About</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="About doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                         </a>
-                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
-                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
-                        <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Campus</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Academics</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Academics doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="admissions.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Admissions</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Admissions doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                          <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Contact</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Careers</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Careers doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Gallery</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Gallery doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
                     <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
                     </div>
                 </nav>
@@ -202,7 +225,7 @@
                 <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
                     <div class="text-left">
                         <p class="text-lg font-bold tracking-widest text-yellow-500 mb-4 hero-item">ADMISSIONS</p>
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter leading-none text-[#1A4742] hero-item">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter leading-none text-red-600 hero-item">
                             Own Your Child’s Future. <br> Enroll Today.
                         </h1>
                         <p class="mt-6 text-lg text-gray-600 max-w-xl hero-item">
@@ -221,7 +244,7 @@
             <section class="py-20 sm:py-28 px-4 sm:px-8 bg-white">
                 <div class="max-w-5xl mx-auto">
                     <div class="text-center mb-16">
-                        <h2 class="text-4xl sm:text-5xl font-bold text-[#1A4742] reveal-up">A Simple & Transparent Journey</h2>
+                        <h2 class="text-4xl sm:text-5xl font-bold text-blue-600 reveal-up">A Simple & Transparent Journey</h2>
                         <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto reveal-up">We've designed a parent-friendly admission process in four clear steps.</p>
                     </div>
 
@@ -232,19 +255,19 @@
                             <!-- Step 1 -->
                             <div class="timeline-item">
                                 <div class="timeline-icon"><i class="fas fa-search"></i></div>
-                                <h3 class="text-2xl font-bold mb-2 text-[#1A4742]">1. Enquire & Explore</h3>
+                                <h3 class="text-2xl font-bold mb-2 text-red-600">1. Enquire & Explore</h3>
                                 <p class="text-gray-700">Fill out our <a href="#" class="text-yellow-600 font-bold hover:underline">Online Enquiry Form</a> or call us. We invite you for a fast-track campus tour to meet our team and see our world-class facilities.</p>
                             </div>
                             <!-- Step 2 -->
                             <div class="timeline-item">
                                 <div class="timeline-icon"><i class="fas fa-child"></i></div>
-                                <h3 class="text-2xl font-bold mb-2 text-[#1A4742]">2.Interaction</h3>
+                                <h3 class="text-2xl font-bold mb-2 text-blue-600">2.Interaction</h3>
                                 <p class="text-gray-700">We conduct a friendly, 30-minute fun activity for kindergarten applicants. For other grades, a simple, age-appropriate assessment ensures the best fit for your child.</p>
                             </div>
                             <!-- Step 3 -->
                             <div class="timeline-item">
                                 <div class="timeline-icon"><i class="fas fa-check-circle"></i></div>
-                                <h3 class="text-2xl font-bold mb-2 text-[#1A4742]">3. Submit Documents & Confirm Admission </h3>
+                                <h3 class="text-2xl font-bold mb-2 text-red-600">3. Submit Documents & Confirm Admission </h3>
                                 <p class="text-gray-700">Once shortlisted, parents are requested to submit the following documents to complete the 
                                     admission process: 
                                     <br>• Student’s Birth Certificate (copy) 
@@ -259,7 +282,7 @@
                             <!-- Step 4 -->
                             <div class="timeline-item">
                                 <div class="timeline-icon"><i class="fas fa-users"></i></div>
-                                <h3 class="text-2xl font-bold mb-2 text-[#1A4742]">4. Welcome to the Family</h3>
+                                <h3 class="text-2xl font-bold mb-2 text-blue-600">4. Welcome to the Family</h3>
                                 <p class="text-gray-700">Join our Parent Orientation, get a campus walkthrough, and download our Parent App to stay connected and informed. Welcome to the Rajarshi legacy!</p>
                             </div>
                         </div>
@@ -267,7 +290,7 @@
                         <!-- Right Side: Age Criteria & Image -->
                         <div class="space-y-8 sticky top-28">
                             <div class="bg-[#FBF9EA] p-8 rounded-2xl shadow-lg border border-gray-200 reveal-up">
-                                <h3 class="text-2xl font-bold mb-4 text-[#1A4742]">Age Criteria (as per NEP)</h3>
+                                <h3 class="text-2xl font-bold mb-4 text-red-600">Age Criteria (as per NEP)</h3>
                                 <ul class="space-y-3 text-gray-700">
                                     <li class="flex items-center"><i class="fas fa-birthday-cake text-yellow-500 mr-3"></i><strong>Nursery:</strong> 3+ years by March 31st</li>
                                     <li class="flex items-center"><i class="fas fa-birthday-cake text-yellow-500 mr-3"></i><strong>Pre-Primary I/II:</strong> 4+ / 5+ years</li>
@@ -283,7 +306,7 @@
             </section>
 
             <!-- CTA Section -->
-            <section class="bg-[#1A4742] text-white py-20 sm:py-28 px-4 sm:px-8">
+            <section class="bg-red-600 text-white py-20 sm:py-28 px-4 sm:px-8">
                 <div class="max-w-4xl mx-auto text-center">
                     <h2 class="text-3xl sm:text-4xl font-bold mb-8 reveal-up">Ready to Begin Your Journey?</h2>
                     <p class="text-lg text-gray-300 mb-12 reveal-up">Take the next step towards securing a bright future for your child. Our admissions team is here to guide you.</p>
@@ -296,7 +319,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="bg-[#111111] text-white py-20 px-8">
+        <footer class="bg-[#111111] text-white py-7 px-8">
             <div class="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 text-center md:text-left">
                 <div class="md:col-span-2">
                     <h4 class="text-2xl font-bold mb-4">Rajarshi✦</h4>
@@ -321,14 +344,13 @@
                 <div class="md:col-span-2 text-center md:text-right">
                     <h4 class="font-bold mb-4">Connect With Us</h4>
                     <div class="flex justify-center md:justify-end space-x-4 mb-4">
-                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓕ</a>
-                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓘ</a>
-                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓛ</a>
-                        <a href="#" class="text-2xl hover:text-yellow-400 transition">ⓧ</a>
+                        <a href="#" class="text-2xl hover:text-blue-400 transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-pink-400 transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-blue-500 transition" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="container mx-auto mt-16 text-center border-t border-gray-800 pt-8">
+            <div class="container mx-auto mt-6 text-center border-t border-gray-800 pt-4">
                 <p class="text-gray-500">© 2025 Rajarshi International School. All Rights Reserved.</p>
             </div>
         </footer>

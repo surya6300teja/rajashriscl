@@ -16,8 +16,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        .reveal-text-wrapper {
+            overflow: visible !important;
+            line-height: 1.2; /* adjust if needed */
+            }
+
+            .reveal-text-item {
+            display: inline-block;
+            padding-bottom: 0.15em; /* gives extra space for g/y/p descenders */
+            }
+
         body {
             font-family: 'Manrope', sans-serif;
             background-color: #FBF9EA;
@@ -128,6 +139,23 @@
             opacity: 0; /* Start hidden for animation */
             transform: scale(0.5); /* Start small for animation */
         }
+        .nav-link-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 209, 102, 0.3);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .nav-link-circle:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -195,32 +223,38 @@
                              md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
                     <div class="flex flex-col items-center space-y-4 
                                 md:flex-row md:space-y-0 md:space-x-1"> 
-                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
-                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
-                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Campus
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
-                                alt="Campus doodle"
-                                class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
+                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Home</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Home doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                         </a>
-                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
-                        <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Contact
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec8e16f271366244f120e2_doodle-2.svg"
-                                alt="Contact doodle"
-                                class="absolute top-[18px] inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
+                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">About</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="About doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
                         </a>
-                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
-                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
-                        <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Campus</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Academics</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Academics doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="admissions.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Admissions</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Admissions doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                          <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Contact</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Careers</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Careers doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
+                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                            <div class="navbar_text">Gallery</div>
+                            <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Gallery doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                        </a>
                     <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
                     </div>
                 </nav>
@@ -235,7 +269,7 @@
                 <div class="max-w-5xl mx-auto text-center">
                     <p class="text-lg font-bold tracking-widest mb-4">ABOUT US</p>
                     <h1 class="text-4xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-none">
-                        <span class="reveal-text-wrapper"><span class="reveal-text-item">Legacy of Learning.</span></span>
+                        <span class="reveal-text-wrapper"><span class="reveal-text-item">Legacy of Learning </span></span>
                         <br>
                         <span class="reveal-text-wrapper"><span class="reveal-text-item" style="transition-delay: 0.1s;">Future of Leadership.</span></span>
                     </h1>
@@ -265,10 +299,7 @@
             <!-- Fallback for mobile -->
             <section class="py-10 px-4 md:hidden">
                  <div class="flex flex-col gap-8">
-                    <img src="./66f1d56913aca007d32801ea_2148763993.webp" class="w-full h-auto " alt="Students smiling">
-                    <!-- <img src="./66f1e7abe15beeb0a0373df9_values.webp" class="w-full h-auto rounded-2xl" alt="Student with glasses">
-                    <img src="./66f1d554e3da5730e58cf8b1_2148633361.webp" class="w-full h-auto rounded-2xl" alt="Teacher with students">
-                  -->
+                    <img src="./Images/Website/DSC00890.JPG" class="w-full h-auto " alt="Student with glasses">
                 </div>
             </section>
 
@@ -277,7 +308,14 @@
             <section class="bg-[#1A4742] text-white py-20 sm:py-28 px-4 sm:px-8">
                 <div class="max-w-7xl mx-auto">
                     <p class="text-lg font-bold tracking-widest mb-4 opacity-80">OUR LEGACY</p>
-                    <h2 class="text-4xl sm:text-5xl font-bold mb-12 max-w-4xl">Mr. Venkata Reddy Meenige:<br> A Visionary in Value Education  </h2>
+                    <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+                        <div>
+                            <h2 class="text-4xl sm:text-5xl font-bold mb-8 max-w-4xl">Mr. Venkata Reddy Meenige:<br> A Visionary in Value Education  </h2>
+                        </div>
+                        <div class="flex justify-center">
+                            <img src="./Images/About/chairman.jpg" alt="Principal" class="w-66 h-64 object-cover rounded-full shadow-xl">
+                        </div>
+                    </div>
                     <div class="text-lg opacity-90 leading-relaxed">
                         <p class="mb-4">Mr. Venkata Reddy Meenige, Founder & Chairman of Rajarshi, brings over 35 years of transformative leadership.</p>
                         <p class="mb-4">Guided by Mr. Ratan Tata’s belief that "The greatest pleasure one can have is trying to do something that everybody says cannot be done”, he exemplifies hard work creating miracles for others.</p>
@@ -287,6 +325,9 @@
                     </div>
                 </div>
             </section>
+             <!-- <div>
+                <img src="./Images/About/chairman.jpg" class="w-full h-auto" alt="Children walking to school">
+            </div> -->
            
             <br>
             <br>
@@ -338,9 +379,7 @@
                     </div>
                 </div>
             </section>
-            <div>
-                <img src="./Images/About/about4.png" class="w-full h-auto" alt="Children walking to school">
-            </div>
+           
             <br>
             <br>
             <section class="leadership-ventures-section bg-[#FBF9EA] py-20 md:py-32 px-4 sm:px-8">
@@ -384,6 +423,7 @@
 
                 </div>
             </section>
+
 
             <!-- Our Mission Section - Fully Responsive -->
             <section class="py-20 sm:py-28 px-4 sm:px-8 overflow-hidden">
@@ -442,8 +482,11 @@
             </section>
 
             <!-- Faculty Section  -->
-            <section id="faculty-section-animated" class="py-20 sm:py-28 px-4 sm:px-8 bg-[#FBF9EA]">
-                <div class="max-w-7xl mx-auto">
+            <section id="faculty-section-animated" class="py-20 sm:py-28 px-4 sm:px-8 bg-[#FBF9EA] relative">
+                <div class="absolute inset-0 opacity-25 z-0">
+                    <img src="./Images/About/about4.png" alt="Teacher" class="w-full h-full object-cover">
+                </div>
+                <div class="max-w-7xl mx-auto relative z-10">
                     <h2 class="text-center text-4xl sm:text-5xl font-bold text-[#1A4742] tracking-tight mb-10 faculty-item-animated">
                         Our Faculty: Not Just Qualified. Personally Invested.
                     </h2>
@@ -474,7 +517,7 @@
         </main>
 
         <!-- FOOTER - Ensure it matches consistency if changes were made elsewhere -->
-        <footer class="bg-[#111111] text-white py-20 px-8">
+        <footer class="bg-[#111111] text-white py-7 px-8">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 text-center md:text-left">
             <div class="md:col-span-2">
                 <h4 class="text-2xl font-bold mb-4">Rajarshi✦</h4>
@@ -499,14 +542,13 @@
             <div class="md:col-span-2 text-center md:text-right">
                 <h4 class="font-bold mb-4">Connect With Us</h4>
                 <div class="flex justify-center md:justify-end space-x-4 mb-4">
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓕ</a>
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓘ</a>
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓛ</a>
-                    <a href="#" class="text-2xl hover:text-brand-yellow transition">ⓧ</a>
+                    <a href="#" class="text-2xl hover:text-blue-400 transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-2xl hover:text-pink-400 transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-2xl hover:text-blue-500 transition" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
-        <div class="container mx-auto mt-16 text-center border-t border-gray-800 pt-8">
+        <div class="container mx-auto mt-6 text-center border-t border-gray-800 pt-4">
             <p class="text-gray-500">© 2025 Rajarshi International School. All Rights Reserved.</p>
         </div>
     </footer>

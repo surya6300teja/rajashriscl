@@ -42,6 +42,23 @@
         #menu-overlay {
             transition: opacity 0.3s ease-in-out;
         }
+        .nav-link-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 209, 102, 0.3);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .nav-link-circle:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -61,17 +78,45 @@
                     </button>
                 </div>
 
-                <nav class="hidden md:flex items-center space-x-1 p-2 rounded-full shadow-md bg-white">
-                    <a href="index.html" class="text-black hover:text-gray-500 px-4 py-2">Home</a>
-                    <a href="about.html" class="text-black hover:text-gray-500 px-4 py-2">About</a>
-                    <a href="campus.html" class="text-black hover:text-gray-500 px-4 py-2">Campus</a>
-                    <a href="academics.html" class="text-black hover:text-gray-500 px-4 py-2">Academics</a>
-                    <a href="contact.html" class="text-black hover:text-gray-500 px-4 py-2">Contact</a>
-                    <a href="careers.html" class="text-black font-bold px-4 py-2">Careers</a>
-                    <a href="gallery.html" class="text-black hover:text-gray-500 px-4 py-2">Gallery</a>
-                    <a href="admissions.html" class="text-black hover:text-gray-500 px-4 py-2">Admissions</a>
-                    <!-- <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full ml-2">Pay Fee</a> -->
-                </nav>
+                <nav id="menu" class="hidden absolute top-24 left-4 right-4 bg-white rounded-xl shadow-lg p-6 z-50
+                             md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
+                <div class="flex flex-col items-center space-y-4 
+                            md:flex-row md:space-y-0 md:space-x-1"> 
+                    <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Home</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Home doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">About</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="About doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Campus</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Academics</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Academics doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="admissions.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Admissions</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Admissions doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                     <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Contact</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Careers</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Careers doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Gallery</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Gallery doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
+                </div>
+            </nav>
             </div>
         </header>
         
@@ -156,12 +201,6 @@
                     <div>
                         <h2 class="text-3xl sm:text-4xl font-bold text-[#9D1D33] mb-8 reveal-up">Current Opportunities</h2>
                         
-                        <div class="relative mb-8 reveal-up">
-                            <input type="text" id="job-search" placeholder="Search by role (e.g., 'Math' or 'Primary')" 
-                                class="w-full p-4 pl-12 border-2 border-gray-300 rounded-full focus:ring-2 focus:ring-[#FFD166] focus:border-[#FFD166] transition">
-                            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                        </div>
-
                         <div id="job-listings" class="space-y-4">
                             <div class="job-card bg-white p-6 rounded-lg shadow-md reveal-up" data-role="Primary Teacher PRT Grade 1-5 Subjects">
                                 <h3 class="text-xl font-bold text-[#10263B]">Primary Teacher (PRT)</h3>
@@ -331,6 +370,10 @@
       <option value="Other">Other</option>
     </select>
   </div>
+  <div id="other-position-container" style="display: none;">
+    <label for="other-position" class="block text-sm font-medium text-gray-700">Please specify</label>
+    <input type="text" id="other-position" name="OtherPosition" class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
+  </div>
   <div>
     <label for="experience" class="block text-sm font-medium text-gray-700">Years of Experience</label>
     <input type="number" id="experience" name="Experience" min="0" required class="mt-1 w-full p-3 border border-gray-300 rounded-lg">
@@ -357,7 +400,7 @@
             </section>
         </main>
     
-        <footer class="bg-[#111111] text-white py-16 px-4 sm:px-8">
+        <footer class="bg-[#111111] text-white py-7 px-4 sm:px-8">
             <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center sm:text-left">
                 <div class="sm:col-span-2 lg:col-span-2">
                     <h4 class="text-2xl font-bold mb-4">Rajarshi</h4>
@@ -382,14 +425,13 @@
                 <div class="text-center sm:text-right">
                     <h4 class="font-bold mb-4">Connect</h4>
                     <div class="flex justify-center sm:justify-end space-x-4">
-                        <a href="#" aria-label="Facebook" class="text-2xl hover:text-yellow-400 transition">ⓕ</a>
-                        <a href="#" aria-label="Instagram" class="text-2xl hover:text-yellow-400 transition">ⓘ</a>
-                        <a href="#" aria-label="LinkedIn" class="text-2xl hover:text-yellow-400 transition">ⓛ</a>
-                        <a href="#" aria-label="X" class="text-2xl hover:text-yellow-400 transition">ⓧ</a>
+                        <a href="#" aria-label="Facebook" class="text-2xl hover:text-blue-400 transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram" class="text-2xl hover:text-pink-400 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn" class="text-2xl hover:text-blue-500 transition"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="container mx-auto mt-12 text-center border-t border-gray-800 pt-8">
+            <div class="container mx-auto mt-6 text-center border-t border-gray-800 pt-4">
                 <p class="text-gray-500">&copy; 2025 Rajarshi International School. All Rights Reserved.</p>
             </div>
         </footer>
@@ -431,18 +473,15 @@
             menuBtn.addEventListener('click', toggleMenu);
             menuOverlay.addEventListener('click', toggleMenu);
 
-            // --- Job Search Filter ---
-            const searchInput = document.getElementById('job-search');
-            if (searchInput) {
-                searchInput.addEventListener('keyup', () => {
-                    const filter = searchInput.value.toLowerCase();
-                    const jobContainer = document.getElementById('job-listings');
-                    const jobs = jobContainer.getElementsByClassName('job-card');
-
-                    for (let i = 0; i < jobs.length; i++) {
-                        const jobCard = jobs[i];
-                        const roleText = jobCard.getAttribute('data-role').toLowerCase();
-                        jobCard.style.display = roleText.includes(filter) ? "" : "none";
+            // --- Show/hide other position field ---
+            const positionSelect = document.getElementById('position');
+            const otherPositionContainer = document.getElementById('other-position-container');
+            if (positionSelect && otherPositionContainer) {
+                positionSelect.addEventListener('change', () => {
+                    if (positionSelect.value === 'Other') {
+                        otherPositionContainer.style.display = 'block';
+                    } else {
+                        otherPositionContainer.style.display = 'none';
                     }
                 });
             }

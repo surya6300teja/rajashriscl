@@ -21,6 +21,23 @@
         .container {
             max-width: 1400px;
         }
+        .nav-link-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 209, 102, 0.3);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .nav-link-circle:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
     </style>
 </head>
 <body class="bg-[#F8F5F1]">
@@ -35,39 +52,45 @@
                     </button>
                 </div>
 
-                <nav id="menu" class="hidden absolute top-24 left-4 right-4 bg-white rounded-xl shadow-lg p-6 z-50
+            <nav id="menu" class="hidden absolute top-24 left-4 right-4 bg-white rounded-xl shadow-lg p-6 z-50
                              md:flex md:items-center md:relative md:top-auto md:left-auto md:right-auto md:p-2 md:rounded-full md:shadow-md">
-                    <div class="flex flex-col items-center space-y-4 
-                                md:flex-row md:space-y-0 md:space-x-1"> 
-                        <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Home</a>
-                        <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">About</a>
-                        <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Campus
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg"
-                                alt="Campus doodle"
-                                class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
-                        </a>
-                        <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center">Academics</a>
-                        <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center group relative flex items-center justify-center h-12">
-                            <div class="navbar_text">
-                                Contact
-                            </div>
-                            <img
-                                src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec8e16f271366244f120e2_doodle-2.svg"
-                                alt="Contact doodle"
-                                class="absolute top-[18px] inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
-                            />
-                        </a>
-                        <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center">Careers</a>
-                        <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center">Gallery</a>
-                        <a href="admissions.html" class="text-black-700 font-bold px-2 py-2 text-center">Admissions</a>
+                <div class="flex flex-col items-center space-y-4 
+                            md:flex-row md:space-y-0 md:space-x-1"> 
+                    <a href="index.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Home</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Home doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="about.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">About</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="About doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="campus.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Campus</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="academics.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Academics</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Academics doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="admissions.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Admissions</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Admissions doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                     <a href="contact.html" class="text-black-700 hover:text-gray-500 px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Contact</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Campus doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="careers.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Careers</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Careers doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
+                    <a href="gallery.html" class="text-black-700 font-bold px-2 py-2 text-center nav-link-circle relative group flex items-center justify-center h-12">
+                        <div class="navbar_text">Gallery</div>
+                        <img src="https://cdn.prod.website-files.com/66ec3a9528bbcbcda2793728/66ec90570f285dac6a8be621_doodle-3.svg" alt="Gallery doodle" class="absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none" />
+                    </a>
                     <!-- <a href="https://rajarshi.nexterp.in/nlp/nlp/admission-login" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-full text-center mt-4 md:mt-0 md:ml-2">Enquire Now</a> -->
-                    </div>
-                </nav>
+                </div>
+            </nav>
             </div>
         </header>
         <div class="fixed bottom-6 right-6 flex flex-col items-end space-y-3 z-50">
@@ -121,38 +144,38 @@
         <main class="container mx-auto py-12">
             <h1 class="text-4xl font-extrabold mb-8 text-center">Gallery</h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-  <img src="Images/gallerypage/s1.png" alt="s1" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s2.png" alt="s2" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s3.png" alt="s3" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s4.png" alt="s4" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s5.png" alt="s5" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s6.png" alt="s6" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s7.jpg" alt="s7" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s8.png" alt="s8" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s9.png" alt="s9" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s10.JPG" alt="s10" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s11.JPG" alt="s11" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s12.JPG" alt="s12" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s13.JPG" alt="s13" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s14.JPG" alt="s14" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s15.JPG" alt="s15" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s16.JPG" alt="s16" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s17.JPG" alt="s17" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s18.JPG" alt="s18" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s19.JPG" alt="s19" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s20.JPG" alt="s20" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s21.JPG" alt="s21" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s22.JPG" alt="s22" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s10.JPG" alt="s1" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s11.JPG" alt="s2" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s12.JPG" alt="s3" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s13.JPG" alt="s4" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s14.JPG" alt="s5" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s15.JPG" alt="s6" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s16.JPG" alt="s7" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s17.JPG" alt="s8" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s18.JPG" alt="s9" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s19.JPG" alt="s10" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s20.JPG" alt="s11" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s21.JPG" alt="s12" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s23.JPG" alt="s13" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s24.JPG" alt="s14" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s25.JPG" alt="s15" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s26.JPG" alt="s16" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s27.JPG" alt="s17" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/index/Child-new.png" alt="s18" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/About/about4.png" alt="s19" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/campus/campus.jpg" alt="s20" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/campus/camp1.jpg" alt="s21" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/About/about1.png" alt="s28" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/About/about3.png" alt="s29" class="rounded-lg shadow-md w-full object-cover" />
+  <!-- <img src="Images//s22.JPG" alt="s22" class="rounded-lg shadow-md w-full object-cover" />
   <img src="Images/gallerypage/s23.JPG" alt="s23" class="rounded-lg shadow-md w-full object-cover" />
   <img src="Images/gallerypage/s24.JPG" alt="s24" class="rounded-lg shadow-md w-full object-cover" />
   <img src="Images/gallerypage/s25.JPG" alt="s25" class="rounded-lg shadow-md w-full object-cover" />
   <img src="Images/gallerypage/s26.JPG" alt="s26" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s27.JPG" alt="s27" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s28.png" alt="s28" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s29.png" alt="s29" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s30.png" alt="s30" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s27.JPG" alt="s27" class="rounded-lg shadow-md w-full object-cover" /> -->
+  <!-- <img src="Images/gallerypage/s30.png" alt="s30" class="rounded-lg shadow-md w-full object-cover" />
   <img src="Images/gallerypage/s31.png" alt="s31" class="rounded-lg shadow-md w-full object-cover" />
-  <img src="Images/gallerypage/s32.jpeg" alt="s32" class="rounded-lg shadow-md w-full object-cover" />
+  <img src="Images/gallerypage/s32.jpeg" alt="s32" class="rounded-lg shadow-md w-full object-cover" /> -->
 </div>
         </main>
     </div>
